@@ -5,7 +5,8 @@
 * Authentication of users within the Kubernetes cluster would be performed using keystone
 * To provide for enhanced cluster security the cluster kube-manager may be hosted on the Contrail controller rather than the kubernetes master
 * The kube-manager should support secure remote connections to the kubernetes API server
+* The integration with keystone is done on Kubernetes level using k8s-keystone-auth pod
 
 ### Keywords
-* Keystone
+* Keystone from Existing Deployed Openstack cluster
 * k8s+o7k+Contrail

@@ -1,0 +1,16 @@
+noden18: MAAS+Juju controller
+
+noden19: Compute
+nodec9: Compute
+
+noden20: Controller
+noden35: Controller (Not connected)
+nodei34: Controller (Not connected)
+
+### Extra nodes
+nodeg20: Controller
+nodec61: Controller
+
+### Deployment setup(Multi interface not HA)
+* noden20: Controller
+* noden19 and nodec9: Compute

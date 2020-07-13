@@ -12,6 +12,12 @@
 * k8s+o7k+Contrail
 * Contrail controller relation with Openstack and Kubernetes
 
+### Users in Kubernetes
+* https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes
+* Two types of Users:
+  * Normal Users: Require outside independent service like Keystone or Google accounts
+  * Service accounts Users
+
 ### Tests done in Feature test
 * test_contrail_status
   * Test to verify that all services are running and active

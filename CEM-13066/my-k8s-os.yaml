@@ -10,7 +10,7 @@ applications:
   contrail-analytics:
     charm: local:bionic/contrail-analytics-0
     num_units: 3
-    to: [ "0,"1","2" ]
+    to: ["0","1","2"]
     expose: true
     options:
       docker-registry: tungstenfabric
@@ -20,7 +20,7 @@ applications:
   contrail-analyticsdb:
     charm: local:bionic/contrail-analyticsdb-0
     num_units: 3
-    to: [ "0,"1","2" ]
+    to: [ "0","1","2" ]
     expose: true
     options:
       cassandra-jvm-extra-opts: -Xms1g -Xmx2g
@@ -32,7 +32,7 @@ applications:
   contrail-controller:
     charm: local:bionic/contrail-controller-0
     num_units: 3
-    to: [ "0,"1","2" ]
+    to: [ "0","1","2" ]
     expose: true
     options:
       auth-mode: rbac
@@ -122,7 +122,7 @@ applications:
     charm: cs:~containers/kubernetes-master-827
     num_units: 1
     to:
-      - '0'
+      - '0' #TODO Need to change for HA later
     expose: true
     options:
       authorization-mode: Node,RBAC
@@ -195,7 +195,7 @@ applications:
       - lxd:0
   ubuntu:
     charm: cs:ubuntu-15
-    num_units: 2
+    num_units: 6
     to:
       - lxd:0
       - '0'

@@ -9,7 +9,7 @@ applications:
       log-level: SYS_DEBUG
   contrail-analytics:
     charm: local:bionic/contrail-analytics-0
-    num_units: 1
+    num_units: 3
     to: [ "0,"1","2" ]
     expose: true
     options:
@@ -19,7 +19,7 @@ applications:
       log-level: SYS_DEBUG
   contrail-analyticsdb:
     charm: local:bionic/contrail-analyticsdb-0
-    num_units: 1
+    num_units: 3
     to: [ "0,"1","2" ]
     expose: true
     options:
@@ -31,7 +31,7 @@ applications:
       log-level: SYS_DEBUG
   contrail-controller:
     charm: local:bionic/contrail-controller-0
-    num_units: 1
+    num_units: 3
     to: [ "0,"1","2" ]
     expose: true
     options:

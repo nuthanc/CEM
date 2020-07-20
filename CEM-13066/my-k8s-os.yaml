@@ -10,8 +10,7 @@ applications:
   contrail-analytics:
     charm: local:bionic/contrail-analytics-0
     num_units: 1
-    to:
-      - '0'
+    to: [ "0,"1","2" ]
     expose: true
     options:
       docker-registry: tungstenfabric
@@ -21,8 +20,7 @@ applications:
   contrail-analyticsdb:
     charm: local:bionic/contrail-analyticsdb-0
     num_units: 1
-    to:
-      - '0'
+    to: [ "0,"1","2" ]
     expose: true
     options:
       cassandra-jvm-extra-opts: -Xms1g -Xmx2g
@@ -34,8 +32,7 @@ applications:
   contrail-controller:
     charm: local:bionic/contrail-controller-0
     num_units: 1
-    to:
-      - '0'
+    to: [ "0,"1","2" ]
     expose: true
     options:
       auth-mode: rbac
@@ -202,9 +199,27 @@ applications:
     to:
       - lxd:0
       - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
 machines:
   '0':
-    constraints: mem=3584
+    constraints: tags=controller
+    series: bionic
+  '1':
+    constraints: tags=controller
+    series: bionic
+  '2':
+    constraints: tags=controller
+    series: bionic
+  '3':
+    constraints: tags=compute-o7k
+    series: bionic
+  '4':
+    constraints: tags=compute-k8s
+    series: bionic
+  
 relations:
   - - kubernetes-master:kube-api-endpoint
     - kubernetes-worker:kube-api-endpoint

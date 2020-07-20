@@ -14,6 +14,8 @@
 
 ### Users in Kubernetes
 * https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes
+* Service accounts: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+  * Google Search: Configure Service Accounts for Pods
 * Two types of Users:
   * Normal Users: Require outside independent service like Keystone or Google accounts
   * Service accounts Users
@@ -77,3 +79,15 @@
 
 ### Manual check by Anastasia
 * I've checked that /etc/contrail/contrail-kubernetes.conf in kube-manager container have [AUTH] section with keystone user/password/token_url and that k8s-keystone-auth pods are running in kube-system namespace
+
+### Solution Testing
+* Should be end to end
+* Can add 
+* Questions:
+  * When is Keystone used in Kubernetes?
+  * How did you test authentication in Kubernetes using credentials from Openstack?
+  * How to add Users to Keystone in Kubernetes
+  * How to delete Users to Keystone in Kubernetes
+
+### Questions to ask Andrey
+* How is authentication handled for k8s pods in joint cluster of Openstack and Kubernetes

@@ -29,3 +29,5 @@ Hand it over to the Testing team for the Solution testing
   * Create Solution Plan
   * Execution of Test cases
   * Automation
+
+* **Important**: Solution test Plan scenarios need to come from PLM or Dev

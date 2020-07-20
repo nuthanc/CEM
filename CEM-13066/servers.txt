@@ -14,3 +14,4 @@ nodec61: Controller
 ### Deployment setup(Multi interface not HA)
 * noden20: Controller
 * noden19 and nodec9: Compute
+* nodec61, nodeg20: Controller

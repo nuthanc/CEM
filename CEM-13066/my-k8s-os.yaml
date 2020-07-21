@@ -4,18 +4,20 @@ variables:
   image-tag:                    &image-tag                      "2008.19"
   data-network:                 &data-network                   "192.168.40.0/24"
   control-network:              &control-network                "192.168.40.0/24"
+  vhost-gateway:                &vhost-gateway                  "192.168.40.254"
 services:
   contrail-agent:
     charm: /root/tf-charms/contrail-agent
     options:
       docker-registry: *docker-registry
       docker-registry-insecure: true
+      vhost-gateway: *vhost-gateway
       image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-analytics:
     charm: /root/tf-charms/contrail-analytics
-    num_units: 3
-    to: ["0","1","2"]
+    num_units: 2
+    to: ["0", "1"]
     expose: true
     options:
       docker-registry: *docker-registry
@@ -24,8 +26,8 @@ services:
       log-level: SYS_DEBUG
   contrail-analyticsdb:
     charm: /root/tf-charms/contrail-analyticsdb
-    num_units: 3
-    to: [ "0","1","2" ]
+    num_units: 2
+    to: [ "0", "1"]
     expose: true
     options:
       cassandra-jvm-extra-opts: -Xms1g -Xmx2g
@@ -36,8 +38,8 @@ services:
       log-level: SYS_DEBUG
   contrail-controller:
     charm: /root/tf-charms/contrail-controller
-    num_units: 3
-    to: [ "0","1","2" ]
+    num_units: 2
+    to: [ "0", "1"]
     expose: true
     options:
       auth-mode: rbac
@@ -103,14 +105,14 @@ services:
     charm: cs:glance-297
     num_units: 1
     to:
-      - lxd:0
+      - '6'
     options:
       openstack-origin: distro
   heat:
     charm: cs:heat-276
     num_units: 1
     to:
-      - lxd:0
+      - '6'
     expose: true
     options:
       debug: true
@@ -119,7 +121,7 @@ services:
     charm: cs:keystone-315
     num_units: 1
     to:
-      - lxd:0
+      - '6'
     options:
       admin-password: password
       admin-role: admin
@@ -150,7 +152,7 @@ services:
     charm: cs:percona-cluster-290
     num_units: 1
     to:
-      - lxd:0
+      - '6'
     options:
       innodb-buffer-pool-size: 256M
       max-connections: 1000
@@ -160,7 +162,7 @@ services:
     charm: cs:neutron-api-286
     num_units: 1
     to:
-      - lxd:0
+      - 5
     options:
       debug: true
       manage-neutron-plugin-legacy-mode: false
@@ -170,7 +172,7 @@ services:
     charm: cs:nova-cloud-controller-345
     num_units: 1
     to:
-      - lxd:0
+      - '6'
     options:
       console-access-protocol: novnc
       debug: true
@@ -191,7 +193,7 @@ services:
     charm: cs:openstack-dashboard-304
     num_units: 1
     to:
-      - lxd:0
+      - '6'
     options:
       debug: 'true'
       openstack-origin: distro
@@ -199,17 +201,17 @@ services:
     charm: cs:rabbitmq-server-103
     num_units: 1
     to:
-      - lxd:0
-  ubuntu:
-    charm: cs:ubuntu-15
-    num_units: 6
-    to:
-      - lxd:0
-      - '0'
-      - '1'
-      - '2'
-      - '3'
-      - '4'
+      - '6'
+  # ubuntu:
+  #   charm: cs:ubuntu-15
+  #   num_units: 6
+  #   to:
+  #     - '6'
+  #     - '0'
+  #     - '1'
+  #     - '2'
+  #     - '3'
+  #     - '4'
 machines:
   '0':
     constraints: tags=controller
@@ -217,14 +219,17 @@ machines:
   '1':
     constraints: tags=controller
     series: bionic
-  '2':
-    constraints: tags=controller
-    series: bionic
   '3':
     constraints: tags=compute-o7k
     series: bionic
   '4':
     constraints: tags=compute-k8s
+    series: bionic
+  '5':
+    constraints: tags=neutron
+    series: bionic
+  '6':
+    constraints: tags=o7k-services
     series: bionic
   
 relations:

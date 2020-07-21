@@ -19,4 +19,10 @@ nodec61: Controller
 ### Next steps:
 * Unassign 10.204 network in MAAS
 * Add nodei34 as controller
-* Add control data network 
+* Add control data network
+
+### After n29 is added:
+* Add more k8s masters
+
+### Check
+* physical-interface in contrail-agent

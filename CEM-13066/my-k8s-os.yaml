@@ -1,11 +1,16 @@
 series: bionic
+variables:
+  docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
+  image-tag:                    &image-tag                      "2008.19"
+  data-network:                 &data-network                   "192.168.40.0/24"
+  control-network:              &control-network                "192.168.40.0/24"
 services:
   contrail-agent:
     charm: /root/tf-charms/contrail-agent
     options:
-      docker-registry: tungstenfabric
+      docker-registry: *docker-registry
       docker-registry-insecure: true
-      image-tag: latest
+      image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-analytics:
     charm: /root/tf-charms/contrail-analytics
@@ -13,9 +18,9 @@ services:
     to: ["0","1","2"]
     expose: true
     options:
-      docker-registry: tungstenfabric
+      docker-registry: *docker-registry
       docker-registry-insecure: true
-      image-tag: latest
+      image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-analyticsdb:
     charm: /root/tf-charms/contrail-analyticsdb
@@ -25,9 +30,9 @@ services:
     options:
       cassandra-jvm-extra-opts: -Xms1g -Xmx2g
       cassandra-minimum-diskgb: '4'
-      docker-registry: tungstenfabric
+      docker-registry: *docker-registry
       docker-registry-insecure: true
-      image-tag: latest
+      image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-controller:
     charm: /root/tf-charms/contrail-controller
@@ -38,9 +43,11 @@ services:
       auth-mode: rbac
       cassandra-jvm-extra-opts: -Xms1g -Xmx2g
       cassandra-minimum-diskgb: '4'
-      docker-registry: tungstenfabric
+      docker-registry: *docker-registry
       docker-registry-insecure: true
-      image-tag: latest
+      image-tag: *image-tag
+      control-network: *control-network
+      data-network: *data-network
       log-level: SYS_DEBUG
   contrail-keystone-auth:
     charm: /root/tf-charms/contrail-keystone-auth
@@ -51,9 +58,9 @@ services:
     charm: /root/tf-charms/contrail-kubernetes-master
     options:
       cluster_name: k8s
-      docker-registry: tungstenfabric
+      docker-registry: *docker-registry
       docker-registry-insecure: true
-      image-tag: latest
+      image-tag: *image-tag
       ip_fabric_forwarding: true
       log-level: SYS_DEBUG
       public_fip_pool: "{'domain':'default-domain','project':'k8s-default','name':'__fip_pool_public__','network':'__public__'}"
@@ -61,16 +68,16 @@ services:
   contrail-kubernetes-node:
     charm: /root/tf-charms/contrail-kubernetes-node
     options:
-      docker-registry: tungstenfabric
+      docker-registry: *docker-registry
       docker-registry-insecure: true
-      image-tag: latest
+      image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-openstack:
     charm: /root/tf-charms/contrail-openstack
     options:
-      docker-registry: tungstenfabric
+      docker-registry: *docker-registry
       docker-registry-insecure: true
-      image-tag: latest
+      image-tag: *image-tag
   docker:
     charm: cs:~containers/docker-59
     options:

@@ -91,3 +91,30 @@
 
 ### Questions to ask Andrey
 * How is authentication handled for k8s pods in joint cluster of Openstack and Kubernetes
+
+### Ticktick comments
+```txt
+3 ha, os , contrail , kubemanger
+Openstack n20: no ha if not sufficient
+i34 as controller: 
+c9 or c61 as compute: k8s compute
+https://contrail-jws.atlassian.net/browse/CEM-13066
+
+UI point of view: 
+Authentication going through keystone
+Negative test cases
+
+Ask: Clarify import to UI
+
+Requirement: UI import support
+API 
+Blueprint: Entry point for each feature
+Logs to authentication to 
+Create pod 
+POd authentication to keystone: 
+Bring down keystone 
+authentication shouldn't require
+
+Why there is not a UI support 
+Understand the Process
+```

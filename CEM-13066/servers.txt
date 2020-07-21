@@ -15,3 +15,8 @@ nodec61: Controller
 * noden20: Controller
 * noden19 and nodec9: Compute
 * nodec61, nodeg20: Controller
+
+### Next steps:
+* Unassign 10.204 network in MAAS
+* Add nodei34 as controller
+* Add control data network 

@@ -105,14 +105,14 @@ services:
     charm: cs:glance-297
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
     options:
       openstack-origin: distro
   heat:
     charm: cs:heat-276
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
     expose: true
     options:
       debug: true
@@ -121,7 +121,7 @@ services:
     charm: cs:keystone-315
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
     options:
       admin-password: password
       admin-role: admin
@@ -152,7 +152,7 @@ services:
     charm: cs:percona-cluster-290
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
     options:
       innodb-buffer-pool-size: 256M
       max-connections: 1000
@@ -162,7 +162,7 @@ services:
     charm: cs:neutron-api-286
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
     options:
       debug: true
       manage-neutron-plugin-legacy-mode: false
@@ -172,7 +172,7 @@ services:
     charm: cs:nova-cloud-controller-345
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
     options:
       console-access-protocol: novnc
       debug: true
@@ -193,7 +193,7 @@ services:
     charm: cs:openstack-dashboard-304
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
     options:
       debug: 'true'
       openstack-origin: distro
@@ -201,7 +201,7 @@ services:
     charm: cs:rabbitmq-server-103
     num_units: 1
     to:
-      - [ "lxd:6" ]
+      - "lxd:6"
   ubuntu:
     charm: cs:ubuntu-15
     num_units: 5

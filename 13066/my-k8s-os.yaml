@@ -105,14 +105,14 @@ services:
     charm: cs:glance-297
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
     options:
       openstack-origin: distro
   heat:
     charm: cs:heat-276
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
     expose: true
     options:
       debug: true
@@ -121,7 +121,7 @@ services:
     charm: cs:keystone-315
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
     options:
       admin-password: password
       admin-role: admin
@@ -144,7 +144,7 @@ services:
     charm: cs:~containers/kubernetes-worker-665
     num_units: 1
     to:
-      - '4'
+      - '2'
     options:
       channel: 1.18/stable
       ingress: false
@@ -152,7 +152,7 @@ services:
     charm: cs:percona-cluster-290
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
     options:
       innodb-buffer-pool-size: 256M
       max-connections: 1000
@@ -162,7 +162,7 @@ services:
     charm: cs:neutron-api-286
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
     options:
       debug: true
       manage-neutron-plugin-legacy-mode: false
@@ -172,7 +172,7 @@ services:
     charm: cs:nova-cloud-controller-345
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
     options:
       console-access-protocol: novnc
       debug: true
@@ -182,7 +182,7 @@ services:
     charm: cs:nova-compute-317
     num_units: 1
     to:
-      - '3'
+      - '1'
     options:
       debug: true
       openstack-origin: distro
@@ -193,7 +193,7 @@ services:
     charm: cs:openstack-dashboard-304
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
     options:
       debug: 'true'
       openstack-origin: distro
@@ -201,36 +201,33 @@ services:
     charm: cs:rabbitmq-server-103
     num_units: 1
     to:
-      - "lxd:6"
+      - lxd:0
   ubuntu:
     charm: cs:ubuntu-15
-    num_units: 4
+    num_units: 3
     to:
       - '0'
-      # - '1'
-      # - '5'
-      - '3'
-      - '4'
-      - '6'
+      - '1'
+      - '2'
 machines:
   '0':
     constraints: tags=controller
     series: bionic
+  '1':
+    constraints: tags=compute-o7k
+    series: bionic
+  '2':
+    constraints: tags=compute-k8s
+    series: bionic
   # '1':
   #   constraints: tags=controller
   #   series: bionic
-  '3':
-    constraints: tags=compute-o7k
-    series: bionic
-  '4':
-    constraints: tags=compute-k8s
-    series: bionic
   # '5':
   #   constraints: tags=neutron
   #   series: bionic
-  '6':
-    constraints: tags=o7k-services
-    series: bionic
+  # '6':
+  #   constraints: tags=o7k-services
+  #   series: bionic
   
 relations:
   - - kubernetes-master:kube-api-endpoint

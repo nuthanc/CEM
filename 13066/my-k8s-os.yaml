@@ -204,13 +204,14 @@ services:
       - "lxd:6"
   ubuntu:
     charm: cs:ubuntu-15
-    num_units: 5
+    num_units: 4
     to:
       - '0'
       # - '1'
       # - '5'
       - '3'
       - '4'
+      - '6'
 machines:
   '0':
     constraints: tags=controller

@@ -118,3 +118,7 @@ authentication shouldn't require
 Why there is not a UI support 
 Understand the Process
 ```
+
+### Mistakes in bundle file
+* First thing - cluster must container odd number of nodes. two nodes don’t have a quorum and can’t build cluster
+* Secondly - it’s not possible to place openstack units to the same machine. they don’t work in this way. only lxd containers are possible

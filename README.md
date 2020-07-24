@@ -1,6 +1,7 @@
 # CEM
 
 * Contains features that I am working on
+* Reference to Juju import stories: https://github.com/nuthanc/juju_import
 
 ### To do in All CEMs
 * Ready and Done

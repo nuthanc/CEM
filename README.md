@@ -3,6 +3,12 @@
 * Contains features that I am working on
 * Reference to Juju import stories: https://github.com/nuthanc/juju_import
 
+### Format in all CEMs
+* attached_files
+  * Contains main file
+  * Other resources in res
+* README
+
 ### To do in All CEMs
 * Ready and Done
   * Blueprint: Developer has the requirements

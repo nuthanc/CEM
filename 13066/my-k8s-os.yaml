@@ -190,7 +190,7 @@ services:
       debug: true
       openstack-origin: distro
       virt-type: qemu
-  ntp:
+  ntp: #FIXME: Need to fix NTP
     charm: cs:ntp-39
   openstack-dashboard:
     charm: cs:openstack-dashboard-304
@@ -244,7 +244,7 @@ relations:
   - - kubernetes-worker:certificates
     - easyrsa:client
   - - etcd:certificates
-    - easyrsa:client
+    - easyrsa:client #FIXME: Need to add easyrsa for controller and analytics
   - - kubernetes-master:container-runtime
     - docker:docker
   - - kubernetes-worker:container-runtime

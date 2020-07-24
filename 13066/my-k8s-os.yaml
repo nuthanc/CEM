@@ -134,7 +134,7 @@ services:
     charm: cs:~containers/kubernetes-master-827
     num_units: 1
     to:
-      - '0' #TODO Need to change for HA later
+      - '0' #MSG in general it’s better to separate contrail-control plane and kubernetes-master to different machines
     expose: true
     options:
       authorization-mode: Node,RBAC

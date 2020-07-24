@@ -122,3 +122,27 @@ Understand the Process
 ### Mistakes in bundle file
 * First thing - cluster must container odd number of nodes. two nodes don’t have a quorum and can’t build cluster
 * Secondly - it’s not possible to place openstack units to the same machine. they don’t work in this way. only lxd containers are possible
+* In general it’s better to separate contrail-control plane and kubernetes-master to different machines
+  * This is because along with kubernetes-master, vrouter is also installed according to Andrey
+
+### Question for HA
+* For the User story 13066, what kind of HA testing is expected?
+  * Openstack HA: But this is difficult
+    *  Need to add ceph as a shared storage for cinder, glance, nova and also add VIP-s and hacluster for all of them
+  * Contrail HA: Controller, Analytics and Analyticsdb
+  * Kubernetes HA: Master HA but it shouldn't be on the same machine as the Contrail Control plane
+* How many machines will be required 
+* Andrey answered that in Production
+```sh
+I can suggest that HA is not required there
+
+1 machine for contrail control plane
+1 machine for openstack control plane
+1 machine for kubernetes master
+1 machine for nova compute
+1 machine for kubernetes worker
+
+it a minimal configuration that is close to production
+contrail’s control plane and openstack control plane can be the same machine if it’s big enough
+you can make contrail HA but openstack not HA and many other combinations
+```

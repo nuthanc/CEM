@@ -30,3 +30,7 @@ sudo systemctl restart sshd
 
 ./tf-dev-test/contrail-sanity/run.sh
 ```
+
+### Note 
+
+* Andrey told that tf-dev-test doesn’t have support of deployments where components of control plane are separated to different nodes

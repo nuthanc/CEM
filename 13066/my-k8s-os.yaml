@@ -1,7 +1,7 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2008.20"
+  image-tag:                    &image-tag                      "2008.26"
   data-network:                 &data-network                   "192.168.40.0/24"
   control-network:              &control-network                "192.168.30.0/24"
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"
@@ -16,8 +16,11 @@ services:
       log-level: SYS_DEBUG
   contrail-analytics:
     charm: /root/tf-charms/contrail-analytics
-    num_units: 1
-    to: [ "0" ]
+    num_units: 3
+    to: 
+      - '0'
+      - '3'
+      - '4'
     expose: true
     options:
       docker-registry: *docker-registry
@@ -27,8 +30,11 @@ services:
       log-level: SYS_DEBUG
   contrail-analyticsdb:
     charm: /root/tf-charms/contrail-analyticsdb
-    num_units: 1
-    to: [ "0" ]
+    num_units: 3
+    to: 
+      - '0'
+      - '3'
+      - '4'
     expose: true
     options:
       cassandra-jvm-extra-opts: -Xms1g -Xmx2g
@@ -40,8 +46,11 @@ services:
       log-level: SYS_DEBUG
   contrail-controller:
     charm: /root/tf-charms/contrail-controller
-    num_units: 1
-    to: [ "0" ]
+    num_units: 3
+    to: 
+      - '0'
+      - '3'
+      - '4'
     expose: true
     options:
       auth-mode: rbac
@@ -134,7 +143,7 @@ services:
     charm: cs:~containers/kubernetes-master-827
     num_units: 1
     to:
-      - '0' #MSG in general it’s better to separate contrail-control plane and kubernetes-master to different machines
+      - '4' 
     expose: true
     options:
       authorization-mode: Node,RBAC
@@ -190,8 +199,11 @@ services:
       debug: true
       openstack-origin: distro
       virt-type: qemu
-  ntp: #FIXME: Need to fix NTP
-    charm: cs:ntp-39
+  ntp:
+    charm: cs:ntp
+    num_units: 0
+    options:
+       source: 10.204.217.158
   openstack-dashboard:
     charm: cs:openstack-dashboard-304
     num_units: 1
@@ -207,14 +219,16 @@ services:
       - lxd:0
   ubuntu:
     charm: cs:ubuntu-15
-    num_units: 3
+    num_units: 5
     to:
       - '0'
       - '1'
       - '2'
+      - '3'
+      - '4'
 machines:
   '0':
-    constraints: tags=controller
+    constraints: tags=controller-0
     series: bionic
   '1':
     constraints: tags=compute-o7k
@@ -222,15 +236,12 @@ machines:
   '2':
     constraints: tags=compute-k8s
     series: bionic
-  # '3':
-  #   constraints: tags=controller
-  #   series: bionic
-  # '4':
-  #   constraints: tags=neutron
-  #   series: bionic
-  # '5':
-  #   constraints: tags=o7k-services
-  #   series: bionic
+  '3':
+    constraints: tags=controller-1
+    series: bionic
+  '4':
+    constraints: tags=controller-2
+    series: bionic
   
 relations:
   - - kubernetes-master:kube-api-endpoint
@@ -244,7 +255,15 @@ relations:
   - - kubernetes-worker:certificates
     - easyrsa:client
   - - etcd:certificates
-    - easyrsa:client #FIXME: Need to add easyrsa for controller and analytics
+    - easyrsa:client 
+  - - easyrsa:client
+    - contrail-controller:tls-certificates
+  - - easyrsa:client
+    - contrail-analytics:tls-certificates
+  - - easyrsa:client
+    - contrail-analyticsdb:tls-certificates
+  - - easyrsa:client
+    - contrail-agent:tls-certificates
   - - kubernetes-master:container-runtime
     - docker:docker
   - - kubernetes-worker:container-runtime

@@ -222,13 +222,13 @@ machines:
   '2':
     constraints: tags=compute-k8s
     series: bionic
-  # '1':
+  # '3':
   #   constraints: tags=controller
   #   series: bionic
-  # '5':
+  # '4':
   #   constraints: tags=neutron
   #   series: bionic
-  # '6':
+  # '5':
   #   constraints: tags=o7k-services
   #   series: bionic
   

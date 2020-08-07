@@ -28,6 +28,7 @@ services:
       control-network: *control-network
       image-tag: *image-tag
       log-level: SYS_DEBUG
+      min-cluster-size: 3
   contrail-analyticsdb:
     charm: /root/tf-charms/contrail-analyticsdb
     num_units: 3
@@ -44,6 +45,7 @@ services:
       image-tag: *image-tag
       control-network: *control-network
       log-level: SYS_DEBUG
+      min-cluster-size: 3
   contrail-controller:
     charm: /root/tf-charms/contrail-controller
     num_units: 3

@@ -146,3 +146,40 @@ it a minimal configuration that is close to production
 contrail’s control plane and openstack control plane can be the same machine if it’s big enough
 you can make contrail HA but openstack not HA and many other combinations
 ```
+
+### Discussion with Venky
+
+```txt
+Cluster level authentication
+
+Authentication is for the nodes
+
+Any user who logs in to Openstack, must be able to create Pods
+
+Keystone
+
+Not Deployment level but User level
+
+
+NO authentication at the User level
+Contrail does not support more than 1 User for k8s
+
+Rights given by Keystone.
+
+Pod creation, how is the flow
+
+
+Nested: Openstack underlya
+
+
+Nested:
+vms created on top of Openstack and top of this we create a k8s cluster
+
+
+Where and all to check?
+What to check?
+
+Testcase for keystone auth for k8s using a particular User
+
+Workflow from 
+```

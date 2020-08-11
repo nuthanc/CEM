@@ -1,7 +1,7 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2008.45" #FIXME Anastasia suggested relation of easyrsa with contrail-kubernetes-master
+  image-tag:                    &image-tag                      "2008.46" #FIXME Need to add relation of easyrsa with contrail-kubernetes-master
   data-network:                 &data-network                   "192.168.40.0/24"
   control-network:              &control-network                "192.168.30.0/24"
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"
@@ -104,11 +104,11 @@ services:
       docker_runtime_repo:
         deb [arch={ARCH}] https://download.docker.com/linux/ubuntu
         {CODE} stable
-  easyrsa:
-    charm: cs:~containers/easyrsa-303
-    num_units: 1
-    to:
-      - '0'
+  # easyrsa:
+  #   charm: cs:~containers/easyrsa-303
+  #   num_units: 1
+  #   to:
+  #     - '0'
   etcd:
     charm: cs:~containers/etcd-501
     num_units: 1
@@ -251,22 +251,22 @@ relations:
     - kubernetes-worker:kube-api-endpoint
   - - kubernetes-master:kube-control
     - kubernetes-worker:kube-control
-  - - kubernetes-master:certificates
-    - easyrsa:client
+  # - - kubernetes-master:certificates
+  #   - easyrsa:client
   - - kubernetes-master:etcd
     - etcd:db
-  - - kubernetes-worker:certificates
-    - easyrsa:client
-  - - etcd:certificates
-    - easyrsa:client 
-  - - easyrsa:client
-    - contrail-controller:tls-certificates
-  - - easyrsa:client
-    - contrail-analytics:tls-certificates
-  - - easyrsa:client
-    - contrail-analyticsdb:tls-certificates
-  - - easyrsa:client
-    - contrail-agent:tls-certificates
+  # - - kubernetes-worker:certificates
+  #   - easyrsa:client
+  # - - etcd:certificates
+  #   - easyrsa:client 
+  # - - easyrsa:client
+  #   - contrail-controller:tls-certificates
+  # - - easyrsa:client
+  #   - contrail-analytics:tls-certificates
+  # - - easyrsa:client
+  #   - contrail-analyticsdb:tls-certificates
+  # - - easyrsa:client
+  #   - contrail-agent:tls-certificates
   - - kubernetes-master:container-runtime
     - docker:docker
   - - kubernetes-worker:container-runtime

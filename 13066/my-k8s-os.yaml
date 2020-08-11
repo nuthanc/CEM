@@ -1,7 +1,7 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2008.45"
+  image-tag:                    &image-tag                      "2008.45" #FIXME Anastasia suggested relation of easyrsa with contrail-kubernetes-master
   data-network:                 &data-network                   "192.168.40.0/24"
   control-network:              &control-network                "192.168.30.0/24"
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"

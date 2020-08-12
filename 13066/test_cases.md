@@ -1,4 +1,7 @@
 ### Openstack Failed test cases
+
+* Ubuntu image problem 
+
 ```sh
 testbasicvmvnx.html:<div id=test_vm_file_trf_scp_tests>2020-08-12 15:03:57,885 - INFO - END TEST : test_vm_file_trf_scp_tests : FAILED[0:02:07]
 testsvcregr.html:<div id=test_svc_in_network_datapath>2020-08-12 14:58:38,177 - INFO - END TEST : test_svc_in_network_datapath : FAILED[0:09:38]

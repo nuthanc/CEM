@@ -34,3 +34,9 @@ sudo systemctl restart sshd
 ### Note 
 
 * Andrey told that tf-dev-test doesn’t have support of deployments where components of control plane are separated to different nodes
+
+### Manual sanity
+
+```sh
+bash -x run_tests.sh -m -U -T ci_sanity -t
+```

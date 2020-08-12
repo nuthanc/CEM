@@ -68,7 +68,7 @@ contrail_configuration:
   CONTRAIL_VERSION: master.1145
   OPENSTACK_VERSION: queens
   CONTROLLER_NODES: 192.168.30.20, 192.168.30.29, 192.168.30.34
-  CONTROL_NODES: 192.168.40.20, 192.168.40.29, 192.168.40.34
+  # CONTROL_NODES: 192.168.40.20, 192.168.40.29, 192.168.40.34
   IPFABRIC_SERVICE_IP: 192.168.30.187
   KEYSTONE_AUTH_ADMIN_PASSWORD: password
   KEYSTONE_AUTH_HOST: 192.168.30.187 #FIXME: Use appropriate Keystone ip
@@ -76,7 +76,7 @@ contrail_configuration:
   OPENSTACK_NODES: 192.168.30.20
   RABBITMQ_NODE_PORT: 5673
   REGISTRY_PRIVATE_INSECURE: True
-  VROUTER_GATEWAY: 192.168.40.254
+  VROUTER_GATEWAY: 192.168.30.18
   RABBITMQ_NODE_PORT: "5673"
 
 kolla_config:
@@ -90,8 +90,8 @@ kolla_config:
     enable_heat: "no"
     enable_haproxy: "no"
   kolla_passwords:
-    metadata_secret: c0ntrail123
-    keystone_admin_password: c0ntrail123
+    metadata_secret: password
+    keystone_admin_password: password
 
 orchestrator_configuration:
   contrail_api_interface_address: 192.168.30.20

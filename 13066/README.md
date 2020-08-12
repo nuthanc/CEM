@@ -183,3 +183,7 @@ Testcase for keystone auth for k8s using a particular User
 
 Workflow from 
 ```
+
+### Important links for Keystone webhook
+* https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/using-keystone-webhook-authenticator-and-authorizer.md
+* https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/using-keystone-webhook-authenticator-and-authorizer.md#test-k8s-keystone-auth-service

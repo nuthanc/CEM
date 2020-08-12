@@ -1,10 +1,10 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2008.46" #FIXME Need to add relation of easyrsa with contrail-kubernetes-master
-  data-network:                 &data-network                   "192.168.40.0/24"
+  image-tag:                    &image-tag                      "2008.46"
+  # data-network:                 &data-network                   "192.168.40.0/24"
   control-network:              &control-network                "192.168.30.0/24"
-  vhost-gateway:                &vhost-gateway                  "192.168.40.254"
+  vhost-gateway:                &vhost-gateway                  "192.168.30.18"
 services:
   contrail-agent:
     charm: /root/tf-charms/contrail-agent
@@ -62,7 +62,7 @@ services:
       docker-registry-insecure: true
       image-tag: *image-tag
       control-network: *control-network
-      data-network: *data-network
+      # data-network: *data-network
       log-level: SYS_DEBUG
       min-cluster-size: 3
   contrail-keystone-auth:

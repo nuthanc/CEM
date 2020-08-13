@@ -17,7 +17,6 @@ instances:
       config_database:
       control:
       webui:
-      openstack:
   192_168_30_29:
     ip: 192.168.30.29
     provider: bms
@@ -30,7 +29,6 @@ instances:
       config_database:
       control:
       webui:
-      openstack:
       # vrouter:
       k8s_master:
       kubemanager:
@@ -46,45 +44,37 @@ instances:
       config_database:
       control:
       webui:
-      openstack:
-  # 192_168_30_9:
-  #   ip: 192.168.30.9
-  #   provider: bms
-  #   roles:
-  #     vrouter:
-  #     k8s_node:
-  192_168_30_19:
-    ip: 192.168.30.19
+  192_168_30_9:
+    ip: 192.168.30.9
     provider: bms
     roles:
       vrouter:
-      openstack_compute:
+      k8s_node:
+  # 192_168_30_19:
+  #   ip: 192.168.30.19
+  #   provider: bms
+  #   roles:
+  #     vrouter:
+  #     openstack_compute:
 
 global_configuration:
-  CONTAINER_REGISTRY: tungstenfabric
+  CONTAINER_REGISTRY: bng-artifactory.juniper.net/contrail-nightly
   REGISTRY_PRIVATE_INSECURE: True
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
   CONTRAIL_CONTAINER_TAG: 2008.46
-  CLOUD_ORCHESTRATOR: openstack
-  OPENSTACK_VERSION: queens
+  CLOUD_ORCHESTRATOR: kubernetes
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
   KUBERNETES_PUBLIC_FIP_POOL:
-     domain: default-domain
-     name: __fip_pool_public__
-     network: __public__
-     project: k8s-default
-orchestrator_configuration:
-  keystone:
-    version: v3
-    password: password
-    domain: admin_domain
-    region: RegionOne
+    domain: default-domain
+    name: __fip_pool_public__
+    network: __public__
+    project: k8s-default
 
 deployment:
-    orchestrator: openstack
+    orchestrator: kubernetes
     deployer: juju
 
 test_configuration:
@@ -103,5 +93,11 @@ test_configuration:
         port: 25
         to: nuthanc@juniper.net
         sender: contrailbuild@juniper.net
-    use_project_scoped_token: True
-    test_domain: admin_domain
+    stack_user: admin
+    stack_password: password
+    stack_domain: default-domain
+    stack_tenant: k8s-default
+    vnc_auth_user: admin
+    vnc_auth_password: password
+    vnc_auth_tenant: admin
+    vnc_auth_domain: admin_domain

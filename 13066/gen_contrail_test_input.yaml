@@ -31,7 +31,7 @@ instances:
       control:
       webui:
       openstack:
-      vrouter:
+      # vrouter:
       k8s_master:
       kubemanager:
   192_168_30_34:
@@ -47,12 +47,12 @@ instances:
       control:
       webui:
       openstack:
-  192_168_30_9:
-    ip: 192.168.30.9
-    provider: bms
-    roles:
-      vrouter:
-      k8s_node:
+  # 192_168_30_9:
+  #   ip: 192.168.30.9
+  #   provider: bms
+  #   roles:
+  #     vrouter:
+  #     k8s_node:
   192_168_30_19:
     ip: 192.168.30.19
     provider: bms
@@ -88,7 +88,7 @@ deployment:
     deployer: juju
 
 test_configuration:
-    image_web_server: 10.204.217.158
+    image_web_server: 10.204.216.50
     use_project_scoped_token: True
     auth_port: 35357
     auth_url: http://192.168.30.187:35357/v3

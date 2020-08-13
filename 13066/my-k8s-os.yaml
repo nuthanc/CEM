@@ -259,14 +259,16 @@ relations:
     - easyrsa:client
   - - etcd:certificates
     - easyrsa:client 
-  # - - easyrsa:client
-  #   - contrail-controller:tls-certificates
-  # - - easyrsa:client
-  #   - contrail-analytics:tls-certificates
-  # - - easyrsa:client
-  #   - contrail-analyticsdb:tls-certificates
-  # - - easyrsa:client
-  #   - contrail-agent:tls-certificates
+  - - easyrsa:client
+    - contrail-controller:tls-certificates
+  - - easyrsa:client
+    - contrail-analytics:tls-certificates
+  - - easyrsa:client
+    - contrail-analyticsdb:tls-certificates
+  - - easyrsa:client
+    - contrail-agent:tls-certificates
+  - - easyrsa:client
+    - contrail-kubernetes-master:tls-certificates
   - - kubernetes-master:container-runtime
     - docker:docker
   - - kubernetes-worker:container-runtime

@@ -93,3 +93,8 @@ test_configuration:
     auth_port: 35357
     auth_url: http://192.168.30.187:35357/v3
     test_domain: admin_domain
+    mail_server:
+        server: 10.47.226.20 
+        port: 25
+        to: dl-contrail-sw-in@juniper.net
+        sender: contrailbuild@juniper.net

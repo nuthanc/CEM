@@ -67,6 +67,9 @@ contrail_configuration:
   CLOUD_ORCHESTRATOR: kubernetes
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
+  SSL_ENABLE: "true"
+  RABBITMQ_USE_SSL: "true"
+  CASSANDRA_SSL_ENABLE: "true"
   KUBERNETES_PUBLIC_FIP_POOL:
     domain: default-domain
     name: __fip_pool_public__

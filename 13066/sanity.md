@@ -38,6 +38,9 @@ sudo systemctl restart sshd
 ### Manual sanity
 
 ```sh
-# change the keystone ip in the contrail_test_input
+# change the keystone ip in the contrail_test_input and enable ssl or disable it if deployment is not done without it
+# If ssl is enabled, need to mount volume
+docker run --name nuthan_test3 --entrypoint /bin/bash --network=host -v /etc/contrail:/etc/contrail -it bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:2008.50
+
 bash -x run_tests.sh -m -U -T ci_sanity -t
 ```

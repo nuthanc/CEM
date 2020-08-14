@@ -38,5 +38,6 @@ sudo systemctl restart sshd
 ### Manual sanity
 
 ```sh
+# change the keystone ip in the contrail_test_input
 bash -x run_tests.sh -m -U -T ci_sanity -t
 ```

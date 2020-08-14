@@ -42,5 +42,12 @@ sudo systemctl restart sshd
 # If ssl is enabled, need to mount volume
 docker run --name nuthan_test3 --entrypoint /bin/bash --network=host -v /etc/contrail:/etc/contrail -it bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:2008.50
 
+export PYTHONPATH=./scripts:./fixtures TEST_CONFIG_FILE=contrail_test_input.yaml
+export MX_GW_TEST=0
+export PYTHON3=1
+export EMAIL_SUBJECT="o7k-juju-ci-sanity"
+export EMAIL_SUBJECT="k8s-juju-ci-sanity"
 bash -x run_tests.sh -m -U -T ci_sanity -t
+bash -x run_tests.sh -m -U -T ci_k8s_sanity -t
+
 ```

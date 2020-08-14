@@ -63,7 +63,7 @@ global_configuration:
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
-  CONTRAIL_CONTAINER_TAG: 2008.50
+  CONTRAIL_CONTAINER_TAG: "2008.50"
   CLOUD_ORCHESTRATOR: kubernetes
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3

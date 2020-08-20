@@ -11,6 +11,23 @@
 * Keystone from Existing Deployed Openstack cluster
 * k8s+o7k+Contrail
 * Contrail controller relation with Openstack and Kubernetes
+* Keystone webhook
+  * k8s-keystone-auth Deployment in kube-system namespace
+
+### Workflow explanation from Danil
+* [Important links](#Important-links-for-Keystone-webhook)
+* A Webhook is an HTTP callback; http post to an URL when something happens
+* Important Requirement:
+  * Authorization policy
+* k8s-keystone-auth is the middleman between K8s API and Keystone
+* In master node, ps -ef | grep api
+  * In this command, we see Auth mode as Webhook, along with webhook-config-file
+  * The webhook config file denotes the server to which API should send Authentication and Authorization requests
+* When User comes to the API and authenticates with Keystone token, the API will get the token and send it to the Webhook
+* On master, kubectl get svc -n kube-system
+  * k8s-keystone-auth-service has the same clusterip mentioned in the webhook config file
+* API knows where to send Authorization commands, so that Keystone can validate the token and get back if the Token was valid or not
+* On the master, kube-proxy is running which takes of creating IPtable roles to translate destination address to actual pod address
 
 ### Users in Kubernetes
 * https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes
@@ -187,3 +204,4 @@ Workflow from
 ### Important links for Keystone webhook
 * https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/using-keystone-webhook-authenticator-and-authorizer.md
 * https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/using-keystone-webhook-authenticator-and-authorizer.md#test-k8s-keystone-auth-service
+* https://ubuntu.com/kubernetes/docs/ldap

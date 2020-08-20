@@ -27,7 +27,12 @@
 * On master, kubectl get svc -n kube-system
   * k8s-keystone-auth-service has the same clusterip mentioned in the webhook config file
 * API knows where to send Authorization commands, so that Keystone can validate the token and get back if the Token was valid or not
-* On the master, kube-proxy is running which takes of creating IPtable roles to translate destination address to actual pod address
+* On the master, kube-proxy is running which takes of creating IPtable rules to translate destination address to actual pod address
+  * iptables -L -n -t nat | grep <webhook-ip>
+* 8:32 ipfabric
+* 9:33 config
+* 14:19
+
 
 ### Users in Kubernetes
 * https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes

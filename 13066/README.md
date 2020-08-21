@@ -16,6 +16,7 @@
 
 ### Workflow explanation from Danil
 * [Important links](#Important-links-for-Keystone-webhook)
+* https://web.microsoftstream.com/video/ca542822-7b61-41fa-a87e-27ddb7e74750
 * A Webhook is an HTTP callback; http post to an URL when something happens
 * Important Requirement:
   * Authorization policy
@@ -28,10 +29,35 @@
   * k8s-keystone-auth-service has the same clusterip mentioned in the webhook config file
 * API knows where to send Authorization commands, so that Keystone can validate the token and get back if the Token was valid or not
 * On the master, kube-proxy is running which takes of creating IPtable rules to translate destination address to actual pod address
-  * iptables -L -n -t nat | grep <webhook-ip>
-* 8:32 ipfabric
-* 9:33 config
-* 14:19
+  * iptables -L -n -t nat | grep <webhook-service-ip>
+* 8:32 ipfabric forwarding enable in K8s(Packets coming from the master nodes can reach the pods)
+* juju config kubernetes-master keystone-policy
+  * This is the default configuration option
+  * This has to be changed
+* The above config gets created as a ConfigMap
+  * kubectl get cm -n kube-system
+  * kubectl ger cm -n kube-system -o yaml k8s-auth-policy
+* Create policy file containing the above contents and append required config
+  * Check the policy.yaml file
+* juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
+* To check the ports to which the master is listenining
+  * ss -tupln | grep 6443
+* Now, there should be a rule in the iptables
+  * iptables -L -n -t nat | grep <webhook-service-ip>
+* kubectl config use-context keystone
+  * source rc file
+  * openstack server list
+  * kubectl get pods
+* Prereq:
+  * Installed kubectl on Jumphost(snap install kubectl --classic)
+  * Copied config file from master to ~/.kube/config
+  * snap install --edge client-keystone-auth
+* To check if token is being sent to keystone
+  * tcpdump -Anni any "host <keystone-ip> and port 5000"
+  * Do kubectl get pods and then execute the above(Both cmds in jumphost)
+
+
+
 
 
 ### Users in Kubernetes

@@ -7,7 +7,11 @@
     * Namespace: default and kirthan(Created only cirros pod here)
     * Verbs: get, create
 2. Test 2
-  * User: nuthan_demo
+  * User: nuthan_demo2 (admin role)
+  * Project: demo_project
+  * Domain: admin_domain
+3. Test 3
+  * User: nuthan_demo (Member role)
   * Project: demo_project
   * Domain: admin_domain
 

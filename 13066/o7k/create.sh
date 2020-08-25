@@ -1,3 +1,7 @@
-openstack  project create --domain ${OS_DOMAIN_NAME} ${OS_PROJECT_NAME}
-openstack user create ${OS_USERNAME} --domain ${OS_DOMAIN_NAME} --password ${OS_PASSWORD} --project ${OS_PROJECT_NAME}
-openstack role add --project ${OS_PROJECT_NAME} --project-domain ${OS_DOMAIN_NAME} --user ${OS_USERNAME} --user-domain ${OS_DOMAIN_NAME} ${OS_ROLE}
+set -x
+openstack  project create --domain ${DOMAIN_NAME} ${PROJECT_NAME}
+openstack user create ${USERNAME} --domain ${DOMAIN_NAME} --password ${PASSWORD} --project ${PROJECT_NAME}
+openstack role add --project ${PROJECT_NAME} --project-domain ${DOMAIN_NAME} --user ${USERNAME} --user-domain ${DOMAIN_NAME} ${ROLE}
+
+openstack role assignment list --names
+openstack user list --domain ${DOMAIN_NAME} --project ${PROJECT_NAME}

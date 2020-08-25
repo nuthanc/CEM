@@ -33,3 +33,4 @@ export OS_PROJECT_DOMAIN_NAME=admin_domain
 export OS_DOMAIN_NAME=admin_domain
 export OS_PASSWORD=password
 export OS_AUTH_URL=http://192.168.30.78:5000/v3
+

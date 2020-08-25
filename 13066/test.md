@@ -1,5 +1,9 @@
 ### What was tested
 
+* Domain should be same as default-domain in contrail
+* Combinations which I need to test
+  * Admin domain and nuthan project
+  * 
 1. Test 1
   * User: nuthan_admin2
   * Project: admin
@@ -8,6 +12,8 @@
   * Verbs: get, create
 2. Test 2
   * User: 
+  * Project:
+  * Domain: 
 
 
 Admin project:

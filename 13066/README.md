@@ -234,3 +234,20 @@ Workflow from
 * https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/using-keystone-webhook-authenticator-and-authorizer.md
 * https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/using-keystone-webhook-authenticator-and-authorizer.md#test-k8s-keystone-auth-service
 * https://ubuntu.com/kubernetes/docs/ldap
+
+### Yuvaraja debug
+```sh
+setting->config_editor->vmi delete vhost0 nodec9
+dmesg
+
+
+free -g
+top 
+/var/log/syslog
+/var/log/pods/kube-system../
+
+flow -l
+vif --list
+vrouter machine
+docker restart vrouter_provisioner_1
+```

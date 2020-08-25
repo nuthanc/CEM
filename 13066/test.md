@@ -1,13 +1,15 @@
 ### What was tested
 
 1. Test 1
-  * User: nuthan_admin2
+  * User: nuthan_admin2 (admin role)
   * Project: admin
   * Domain: admin_domain
-  * Namespace: default
-  * Verbs: get, create
+    * Namespace: default and kirthan(Created only cirros pod here)
+    * Verbs: get, create
 2. Test 2
-  * User: 
+  * User: nuthan_demo
+  * Project: demo_project
+  * Domain: admin_domain
 
 
 Admin project:

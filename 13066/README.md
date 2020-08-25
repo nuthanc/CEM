@@ -250,4 +250,30 @@ flow -l
 vif --list
 vrouter machine
 docker restart vrouter_provisioner_1
+
+k exec -it vrouter_agent bash
+
+vif --list
+(Now it has i-address)
+
+ping -I vhost0 <pod-ip> should work
+route -n
+tcpdump -nei vhost0 <ubuntu-pod-ip>
+Simultaneousy ping
+ARP should not happen
+
+ping google.com
+tcpdump -nei vhost0 <google-ip>
+nodec9
+ip route del 10.32.0.0/12
+Don't configure vrouter_gateway in single interface
+
+Restart 28 for cordns, shouldn't be any restart
+
+Host to one of the pod ip in the overlay
+Ping ubuntu ip from the host
+It should not fail
+Deleted the ip route rule
+Underlay to overlay
+
 ```

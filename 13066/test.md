@@ -107,7 +107,67 @@ export OS_PASSWORD=c0ntrail123
 export OS_AUTH_URL=http://192.168.30.78:5000/v3
 export OS_DOMAIN_NAME=default
 ```
-
+5. Test 5
+  * User: boruto (Member role) 
+  * Project: default-project1
+  * Namespace: project1 created
+  * Domain: default
+```sh
+# History
+source admin_stackrc 
+ 1994  source export.sh
+ 1995  bash create.sh 
+ 1996  juju config kubernetes-master keystone-policy="$(cat ../policy.yaml)"
+ 1997  k describe configmap -n kube-system k8s-auth-policy
+ 1998  cd ..
+ 1999  ls
+ 2000  juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
+ 2001  k describe configmap -n kube-system k8s-auth-policy
+ 2002  k get pods -n kube-system
+ 2003  juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
+ 2004  k describe configmap -n kube-system k8s-auth-policy
+ 2005  cd o7k/
+ 2006  ls
+ 2007  cp naruto_stackrc boruto_stackrc
+ 2008  source boruto_stackrc 
+ 2009  k get pods
+ 2010  k create pod cirros --image=cirros -n nuthan
+ 2011  k run cirros --image=cirros -n nuthan
+ 2012  k run nginx --image=nginx
+ 2013  k get pods
+```
+```txt
+Steps:
+  * Created project, user and role
+  export USERNAME=boruto
+  export PROJECT_NAME=boruto-pro
+  export DOMAIN_NAME=Default
+  export PASSWORD=password
+  export ROLE=Member
+  * Added only policy
+  * 
+  * Sourced boruto_stackrc
+```
+```yaml
+{
+       "resource": {
+          "verbs": ["get", "create"],
+          "resources": ["*"],
+          "version": "*",
+          "namespace": "*"
+        },
+        "match": [
+          {
+            "type": "role",
+            "values": ["*"]
+          },
+          {
+            "type": "project",
+            "values": ["boruto-pro"]
+          }
+        ]
+      },
+```
 
 Admin project:
 Non-admin project: User creation, admin role

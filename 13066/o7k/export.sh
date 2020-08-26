@@ -1,5 +1,5 @@
-export USERNAME=nuthan_demo3
-export PROJECT_NAME=k8s
+export USERNAME=naruto
+export PROJECT_NAME=naruto-project
 export DOMAIN_NAME=Default
 export PASSWORD=password
-export ROLE=admin
+export ROLE=Member

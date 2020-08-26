@@ -30,15 +30,48 @@ openstack user list --domain admin_domain --project demo_project
 +----------------------------------+--------------+
 ```
 3. Test 3
-  * User: nuthan_demo3 (admin role)
-  * Project: k8s
+  * User: naruto (Member role)
+  * Project: naruto-project
   * Domain: Default
   **Problem**:
     * Unable to retrieve projects in Horizon
-4. Test 4
-  * User: nuthan_demo (Member role)
-  * Project: demo_project
-  * Domain: admin_domain
+4. Test 4 by Andrey
+  * User: user1 (Member role) 
+  * RBAC: Create, Read, Update, Delete
+  * Project: default-project1
+  * Namespace: project1 created
+  * Domain: default
+```sh
+# policy
+{
+       "resource": {
+          "verbs": ["*"],
+          "resources": ["*"],
+          "version": "*",
+          "namespace": "project1"
+        },
+        "match": [
+          {
+            "type": "role",
+            "values": ["*"]
+          },
+          {
+            "type": "project",
+            "values": ["default-project1"]
+          }
+        ]
+      }
+
+#stackrc
+export OS_IDENTITY_API_VERSION=3
+export OS_USER_DOMAIN_NAME=default
+export OS_USERNAME=user1
+export OS_PROJECT_DOMAIN_NAME=default
+export OS_PROJECT_NAME=default-project1
+export OS_PASSWORD=c0ntrail123
+export OS_AUTH_URL=http://192.168.30.78:5000/v3
+export OS_DOMAIN_NAME=default
+```
 
 
 Admin project:

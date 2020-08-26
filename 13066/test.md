@@ -108,9 +108,8 @@ export OS_AUTH_URL=http://192.168.30.78:5000/v3
 export OS_DOMAIN_NAME=default
 ```
 5. Test 5
-  * User: boruto (Member role) 
-  * Project: default-project1
-  * Namespace: project1 created
+  * User: boruto (Member role) and bor2 (Member role)
+  * Project: boruto-pro
   * Domain: default
   * **No need of namespace and RBAC**
 ```sh
@@ -182,7 +181,7 @@ Non-admin role: Creation k8s objects
 Admin user should be able to delete pods of non-admin User
 RBAC
 
-Restart scenarios:
+Restart scenarios: **Tested for boruto-pro and admin**
 * vrouter agent
 * kubelet
 * kubemanager restart

@@ -27,3 +27,5 @@
 ### Tests to be done
 * With different domain
 * With Namespace
+
+https://stackoverflow.com/questions/28557626/how-to-update-yaml-file-using-python

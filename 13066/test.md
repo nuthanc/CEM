@@ -62,6 +62,7 @@ export ROLE=Member
       }
 ```
 ```sh
+k create ns project
 # Created RBAC rule in webui
 # default-domain:default-project
 juju config kubernetes-master keystone-policy="$(cat ../policy.yaml)"

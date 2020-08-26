@@ -52,3 +52,31 @@ Non-admin project: User creation, admin role
 Non-admin role: Creation k8s objects
 Admin user should be able to delete pods of non-admin User
 RBAC
+
+Restart scenarios:
+* vrouter agent
+* kubelet
+* kubemanager restart
+  * Create pod with some User
+  * Restart kubemanager
+  * Earlier one should be intact
+  * Deleting new Pod
+  * Creating new pod
+* master restart
+* config_api restart
+* keystone-auth-pod restart (Main)
+  * Create user
+  * Restart
+  * After restart 
+  * Add new user
+* docker restart on Compute and Master
+
+Components point of View
+* Keystone restart
+* User and User privileges
+
+First admin project(admin domain): Restart 
+Second non-admin project(admin domain): 
+  * Just keystone and config_api
+
+Different domain

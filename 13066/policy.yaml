@@ -31,7 +31,7 @@ data:
           "verbs": ["*"],
           "resources": ["*"],
           "version": "*",
-          "namespace": "se1"
+          "namespace": "project1"
         },
         "match": [
           {
@@ -40,7 +40,7 @@ data:
           },
           {
             "type": "project",
-            "values": ["k8s1-se1"]
+            "values": ["default-project1"]
           }
         ]
       },
@@ -49,7 +49,7 @@ data:
           "verbs": ["*"],
           "resources": ["*"],
           "version": "*",
-          "namespace": "se2"
+          "namespace": "*"
         },
         "match": [
           {
@@ -58,7 +58,7 @@ data:
           },
           {
             "type": "project",
-            "values": ["k8s1-se2"]
+            "values": ["naruto-project"]
           }
         ]
       },

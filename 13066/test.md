@@ -33,8 +33,42 @@ openstack user list --domain admin_domain --project demo_project
   * User: naruto (Member role)
   * Project: naruto-project
   * Domain: Default
-  **Problem**:
-    * Unable to retrieve projects in Horizon
+```sh
+# Exported the below for create.sh
+export USERNAME=naruto
+export PROJECT_NAME=naruto-project
+export DOMAIN_NAME=Default
+export PASSWORD=password
+export ROLE=Member
+```
+```yaml
+{
+       "resource": {
+          "verbs": ["*"],
+          "resources": ["*"],
+          "version": "*",
+          "namespace": "*"
+        },
+        "match": [
+          {
+            "type": "role",
+            "values": ["*"]
+          },
+          {
+            "type": "project",
+            "values": ["naruto-project"]
+          }
+        ]
+      }
+```
+```sh
+# Created RBAC rule in webui
+# default-domain:default-project
+juju config kubernetes-master keystone-policy="$(cat ../policy.yaml)"
+k describe configmap -n kube-system k8s-auth-policy
+source naruto_stackrc
+k get pods
+```
 4. Test 4 by Andrey
   * User: user1 (Member role) 
   * RBAC: Create, Read, Update, Delete

@@ -64,7 +64,7 @@ data:
       },
       {
        "resource": {
-          "verbs": ["get", "create"],
+          "verbs": ["get", "list", "create"],
           "resources": ["*"],
           "version": "*",
           "namespace": "*"

@@ -112,29 +112,30 @@ export OS_DOMAIN_NAME=default
   * Project: default-project1
   * Namespace: project1 created
   * Domain: default
+  * **No need of namespace and RBAC**
 ```sh
 # History
 source admin_stackrc 
- 1994  source export.sh
- 1995  bash create.sh 
- 1996  juju config kubernetes-master keystone-policy="$(cat ../policy.yaml)"
- 1997  k describe configmap -n kube-system k8s-auth-policy
- 1998  cd ..
- 1999  ls
- 2000  juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
- 2001  k describe configmap -n kube-system k8s-auth-policy
- 2002  k get pods -n kube-system
- 2003  juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
- 2004  k describe configmap -n kube-system k8s-auth-policy
- 2005  cd o7k/
- 2006  ls
- 2007  cp naruto_stackrc boruto_stackrc
- 2008  source boruto_stackrc 
- 2009  k get pods
- 2010  k create pod cirros --image=cirros -n nuthan
- 2011  k run cirros --image=cirros -n nuthan
- 2012  k run nginx --image=nginx
- 2013  k get pods
+source export.sh
+bash create.sh 
+juju config kubernetes-master keystone-policy="$(cat ../policy.yaml)"
+k describe configmap -n kube-system k8s-auth-policy
+cd ..
+ls
+juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
+k describe configmap -n kube-system k8s-auth-policy
+k get pods -n kube-system
+juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
+k describe configmap -n kube-system k8s-auth-policy
+cd o7k/
+ls
+cp naruto_stackrc boruto_stackrc
+source boruto_stackrc 
+k get pods
+k create pod cirros --image=cirros -n nuthan
+k run cirros --image=cirros -n nuthan
+k run nginx --image=nginx
+k get pods
 ```
 ```txt
 Steps:
@@ -145,13 +146,13 @@ Steps:
   export PASSWORD=password
   export ROLE=Member
   * Added only policy
-  * 
+  * Applied policy to keystone-policy
   * Sourced boruto_stackrc
 ```
 ```yaml
 {
        "resource": {
-          "verbs": ["get", "create"],
+          "verbs": ["get", "list", "create"],
           "resources": ["*"],
           "version": "*",
           "namespace": "*"

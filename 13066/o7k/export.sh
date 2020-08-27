@@ -1,5 +1,6 @@
-export USERNAME=boruto
-export PROJECT_NAME=boruto-pro
-export DOMAIN_NAME=Default
+# Case 1
+export USERNAME=o7k-user1
+export PROJECT_NAME=o7k-pro1
+export DOMAIN_NAME=o7k
 export PASSWORD=password
-export ROLE=Member
+export ROLE=admin

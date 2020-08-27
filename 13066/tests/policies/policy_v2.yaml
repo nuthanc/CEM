@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-auth-policy
+  namespace: kube-system
+data:
+  policies: |
+    [
+      {
+        "users": {
+          "projects": ["default-project1"],
+          "roles": ["*"]
+        },
+        "resource_permissions": {
+          "*/pods": ["get", "list", "watch"]
+        }
+      },
+      {
+        "users": {
+          "projects": ["admin"],
+          "roles": ["*"]
+        },
+        "resource_permissions": {
+          "*/*": ["*"]
+        }
+      }
+    ]

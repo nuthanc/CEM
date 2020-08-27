@@ -29,24 +29,6 @@ data:
       {
        "resource": {
           "verbs": ["*"],
-          "resources": ["pods", "deployments", "services"],
-          "version": "*",
-          "namespace": "project1"
-        },
-        "match": [
-          {
-            "type": "role",
-            "values": ["*"]
-          },
-          {
-            "type": "project",
-            "values": ["default-project1"]
-          }
-        ]
-      },
-      {
-       "resource": {
-          "verbs": ["*"],
           "resources": ["pods"],
           "version": "*",
           "namespace": "*"
@@ -95,6 +77,24 @@ data:
           {
             "type": "project",
             "values": ["admin"]
+          }
+        ]
+      },
+      {
+       "resource": {
+          "verbs": ["*"],
+          "resources": ["*"],
+          "version": "*",
+          "namespace": "*"
+        },
+        "match": [
+          {
+            "type": "role",
+            "values": ["*"]
+          },
+          {
+            "type": "project",
+            "values": ["o7k-pro1"]
           }
         ]
       }

@@ -131,6 +131,7 @@ ls
 cp naruto_stackrc boruto_stackrc
 source boruto_stackrc 
 k get pods
+tcpdump -Anni any "host 192.168.30.78 and port 5000"
 k create pod cirros --image=cirros -n nuthan
 k run cirros --image=cirros -n nuthan
 k run nginx --image=nginx
@@ -168,7 +169,11 @@ Steps:
         ]
       },
 ```
-
+6. Test 6
+  * User: o7k-user1 (admin role)
+  * Project: o7k-pro1
+  * Domain: o7k
+  * **No need of namespace and RBAC**
 Admin project:
 Non-admin project: User creation, admin role
   * Create pods and Delete
@@ -208,3 +213,5 @@ Second non-admin project(admin domain):
   * Just keystone and config_api
 
 Different domain
+Different roles
+Different resources

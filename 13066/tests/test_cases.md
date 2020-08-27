@@ -20,10 +20,18 @@
 * Keystone-auth-pod restart
 * User and User privileges
 
+### Policy
+* Trailing , shouldn't be there
+
 ### Tests done
 * Restart scenarios with Project in Default domain and Admin domain
 * Policy change with Project in Default domain
-
-### Tests to be done
 * With different domain
 * With Namespace
+
+### Tests to be done
+
+### Tests not working
+* version 2 policy
+* version 2 in combination with version 1
+  * Even version 1 policies don't work

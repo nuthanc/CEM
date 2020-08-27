@@ -35,3 +35,5 @@
 * version 2 policy
 * version 2 in combination with version 1
   * Even version 1 policies don't work
+
+https://stackoverflow.com/questions/28557626/how-to-update-yaml-file-using-python

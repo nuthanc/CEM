@@ -10,6 +10,7 @@ class O7k_lib:
         self.username = username
         self.password = password
         self.project = project_name
+        self.version = '3'
         self.domain_name = domain_name or 'Default'
 
     def create_project(self, project_name, domain_name='Default'):

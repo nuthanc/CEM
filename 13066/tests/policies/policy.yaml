@@ -59,6 +59,10 @@ data:
           {
             "type": "project",
             "values": ["boruto-pro"]
+          },
+          {
+            "type": "user",
+            "values": ["bor2"]
           }
         ]
       },
@@ -85,7 +89,7 @@ data:
           "verbs": ["*"],
           "resources": ["*"],
           "version": "*",
-          "namespace": "*"
+          "namespace": "pro1"
         },
         "match": [
           {

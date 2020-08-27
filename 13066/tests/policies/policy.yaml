@@ -10,24 +10,6 @@ data:
     [
       {
        "resource": {
-          "verbs": ["get", "list", "watch"],
-          "resources": ["*"],
-          "version": "*",
-          "namespace": "*"
-        },
-        "match": [
-          {
-            "type": "role",
-            "values": ["*"]
-          },
-          {
-            "type": "project",
-            "values": ["k8s"]
-          }
-        ]
-      },
-      {
-       "resource": {
           "verbs": ["*"],
           "resources": ["pods"],
           "version": "*",

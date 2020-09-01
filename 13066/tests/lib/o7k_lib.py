@@ -1,6 +1,7 @@
 from keystoneclient import client as ks_client
 from keystoneauth1 import identity as ks_identity
 from keystoneauth1 import session as ks_session
+from subprocess import check_output
 
 class O7kLib:
 
@@ -46,24 +47,62 @@ class O7kLib:
     def find_domain(self, domain_name):
         return self.keystone.domains.find(name=domain_name)
 
-    def get_tenant_dct(self, tenant_name):
+    def find_project(self, project_name):
+        return self.keystone.projects.find(name=project_name)
+
+    def user_list(self, project_name=None, domain_name=None):
+        project = self.find_project(project_name)
+        domain = self.find_domain(domain_name)
+        return self.keystone.users.list(project=project, domain=domain)
+        # self.keystone.users.list(project=self.keystone.projects.find(
+            # name='nuthan-project'), domain=self.keystone.domains.find(name='nuthan'))
+
+    def get_user_dct(self, user_name, project_name=None, domain_name=None):
+        all_users = self.user_list(project_name, domain_name)
+        for x in all_users:
+            if (x.name == user_name):
+                return x
+        return None
+
+    def roles_list(self):
+        return self.keystone.roles.list()
+
+    def get_role_dct(self, role_name):
+        all_roles = self.roles_list()
+        for x in all_roles:
+            if (x.name == role_name):
+                return x
+        return None
+
+    def tenant_list(self, limit=None, marker=None):
+        return self.keystone.projects.list()
+
+    def get_tenant_dct(self, project_name):
         all_tenants = self.tenant_list()
         for x in all_tenants:
-            if (x.name == tenant_name):
+            if (x.name == project_name):
                 return x
         return None
 
     def create_project(self, project_name, domain_name='Default'):
-        self.keystone.projects.create(name=project_name, domain=domain_name)
+        if not self.keystone.projects.find(name=project_name):
+            domain = self.find_domain(domain_name)
+            self.keystone.projects.create(name=project_name, domain=domain)
+        else:
+            print(f"Project {project_name} already present, not creating")
 
     def create_domain(self, domain_name):
-        self.keystone.domains.create(domain_name)
+        if not self.find_domain(self.domain_name):
+            self.keystone.domains.create(domain_name)
+        else:
+            print(f"Domain {domain_name} already present, not creating")
 
     def create_role(self, role):
         self.keystone.roles.create(role)
 
-    def create_user(self, username):
-        project_id = self.get_tenant_dct(tenant_name).id
+    def create_user(self, user, password, email='', project_name=None,
+                    enabled=True, domain_name=None):
+        project_id = self.get_tenant_dct(project_name).id
         domain_id = self.find_domain(domain_name).id
         self.keystone.users.create(
             user, domain_id, project_id, password, email, enabled=enabled)
@@ -85,9 +124,14 @@ class O7kLib:
         self.update_domain(domain_id=domain_obj.id, enabled=False)
         return self.keystone.domains.delete(domain_obj)
 
+    def add_user_role(self, user_name, role_name, project_name=None, domain_name=None):
+        check_output("")
+        #TODO Need to add user role
     
-tc = O7kLib(username='admin', password='password', domain_name='admin_domain',
+admin = O7kLib(username='admin', password='password', domain_name='admin_domain',
             project_name='admin', auth_url='http://192.168.30.76:5000/v3')
 
-tc.create_domain('nuthan')
-# tc.delete_domain('nuthan')
+admin.create_domain('nuthan')
+admin.create_project(project_name='nuthan_project', domain_name='nuthan')
+admin.create_user(user='rovanova', password='c0ntrail123', project_name='nuthan_project', domain_name='nuthan')
+admin.add_user_role(user_name='rovanova', role_name='Member', project_name='nuthan_project', domain_name='nuthan')

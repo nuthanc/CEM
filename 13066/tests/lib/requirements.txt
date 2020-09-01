@@ -18,7 +18,7 @@ crochet==1.4.0
 cryptography==2.1.4
 debtcollector==2.2.0
 distro-info==0.18
-Django==1.11.11
+Django==1.11.29
 django-piston3==0.3rc2
 djorm-pgarray==1.2
 dnspython==1.15.0

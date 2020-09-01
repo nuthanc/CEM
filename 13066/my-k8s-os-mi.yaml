@@ -1,9 +1,9 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2008.50"
-  data-network:                 &data-network                   "192.168.40.0/24"
-  control-network:              &control-network                "192.168.30.0/24"
+  image-tag:                    &image-tag                      "2008.83"
+  data-network:                 &data-network                   "192.168.40.0/24" #TODO Need to change i34 40 interface to enp4s0f1
+  control-network:              &control-network                "192.168.30.0/24" 
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"
 services:
   contrail-agent:

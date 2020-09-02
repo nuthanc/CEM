@@ -16,19 +16,21 @@ metadata:
 2. apply policy.json from below comment with juju config kubernetes-master keystone-policy="$(cat policy.json)"
 
 3. install client tools on jumphost or any other node outside of cluster
-
+```sh
 sudo snap install kubectl --classic
 sudo snap install client-keystone-auth --edge
+```
 
 4. configure context
-
+```sh
 kubectl config set-context keystone --user=keystone-user
 kubectl config use-context keystone
 kubectl config set-credentials keystone-user --exec-command=/snap/bin/client-keystone-auth
 kubectl config set-credentials keystone-user --exec-api-version=client.authentication.k8s.io/v1beta1
+```
 
 5. either export required settings or prepare stackrc and source it
-
+```sh
 export OS_IDENTITY_API_VERSION=3
 export OS_USER_DOMAIN_NAME=admin_domain
 export OS_USERNAME=admin
@@ -37,6 +39,7 @@ export OS_PROJECT_NAME=admin
 export OS_DOMAIN_NAME=admin_domain
 export OS_PASSWORD=password
 export OS_AUTH_URL=http://192.168.30.78:5000/v3
+```
 
 6. use it
 

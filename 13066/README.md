@@ -68,7 +68,8 @@
   * Service accounts Users
 
 ### Tests done in Feature test
-* https://gist.github.com/nuthanc/403ecac640522dd3219b8678802f7ae9
+* Openstack ci_sanity: https://gist.github.com/nuthanc/403ecac640522dd3219b8678802f7ae9
+* k8s ci_sanity
 
 ### Manual check by Anastasia
 * I've checked that /etc/contrail/contrail-kubernetes.conf in kube-manager container have [AUTH] section with keystone user/password/token_url and that k8s-keystone-auth pods are running in kube-system namespace

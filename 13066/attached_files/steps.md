@@ -43,12 +43,16 @@ export OS_AUTH_URL=http://192.168.30.78:5000/v3
 
 6. use it
 
-root@noden18:[~]$ kubectl -v=5 --insecure-skip-tls-verify=true -s https://192.168.30.29:6443 get pods --all-namespaces
+```sh
+root@noden18:[~]$ 
+kubectl -v=5 --insecure-skip-tls-verify=true -s https://192.168.30.29:6443 get pods --all-namespaces
+
 NAMESPACE     NAME                                READY   STATUS    RESTARTS   AGE
 default       cirros                              1/1     Running   0          30h
 kube-system   coredns-6b59b8bd9f-2nb4x            1/1     Running   57         33h
 kube-system   k8s-keystone-auth-db47ff559-sh59p   1/1     Running   0          33h
 kube-system   k8s-keystone-auth-db47ff559-vrfwd   1/1     Running   0          33h
+```
 
 To use with different user/project please create them, source creds and use.
 

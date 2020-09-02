@@ -1,28 +1,8 @@
 noden18: MAAS+Juju controller
 
-noden19: Compute
-nodec9: Compute
+noden19: Compute (k8s compute)
+nodec9: Compute (o7k node)
 
 noden20: Controller
-noden35: Controller (Not connected)
-nodei34: Controller (Not connected)
-
-### Extra nodes
-nodeg20: Controller
-nodec61: Controller
-
-### Deployment setup(Multi interface not HA)
-* noden20: Controller
-* noden19 and nodec9: Compute
-* nodec61, nodeg20: Controller
-
-### Next steps:
-* Unassign 10.204 network in MAAS
-* Add nodei34 as controller
-* Add control data network
-
-### After n29 is added:
-* Add more k8s masters
-
-### Check
-* physical-interface in contrail-agent
+noden29: Controller + k8s master
+nodei34: Controller 

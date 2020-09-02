@@ -5,10 +5,13 @@
 Steps:
 
 1. disable IP Fabric Forwarding for pod network in default/kube-system project and enable snat (it’s required to reach keystone service from keystone-auth POD. It’s possible to do via ‘kubectl edit ns default’ and add annotation:
+![alt disable-ip-fabric](disable_ip_fabric.png)
 
+```sh
 metadata:
   annotations:
     opencontrail.org/ip_fabric_snat: "true"
+```
 
 2. apply policy.json from below comment with juju config kubernetes-master keystone-policy="$(cat policy.json)"
 

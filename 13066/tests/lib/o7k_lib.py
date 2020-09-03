@@ -3,6 +3,9 @@ from keystoneauth1 import identity as ks_identity
 from keystoneauth1 import session as ks_session
 from keystoneauth1.exceptions import http
 from keystoneclient import exceptions as ks_exceptions
+import logging
+logging.basicConfig(
+    format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 class O7kLib:
 
@@ -89,16 +92,18 @@ class O7kLib:
         try:
             domain = self.find_domain(domain_name)
             self.keystone.projects.create(name=project_name, domain=domain)
+            logging.info(f"Project {project_name} created")
         except http.Conflict:
-            print("Duplicate Project, not creating")
+            logging.warning("Duplicate Project, not creating")
         except Exception as e:
             print(e)
 
     def create_domain(self, domain_name):
         try:
             self.keystone.domains.create(domain_name)
+            logging.info(f"Domain {domain_name} created")
         except http.Conflict:
-            print("Duplicate Domain, not creating")
+            logging.warning("Duplicate Domain, not creating")
         except Exception as e:
             print(e)
         
@@ -112,8 +117,9 @@ class O7kLib:
             domain_id = self.find_domain(domain_name).id
             self.keystone.users.create(
                 user, domain_id, project_id, password, email, enabled=enabled)
+            logging.info(f"User {user} created")
         except http.Conflict:
-            print("Duplicate User, not creating")
+            logging.warning("Duplicate User, not creating")
         except Exception as e:
             print(e)
     
@@ -122,17 +128,19 @@ class O7kLib:
             if not obj:
                 obj = self.keystone.projects.find(name=name)
             self.keystone.projects.delete(obj)
+            logging.info(f"Project {name} deleted")
         except http.NotFound:
-            print(f"Project {name} not found")
+            logging.warning(f"Project {name} not found")
         
     def delete_user(self, user_name, project_name='admin', domain_name='admin_domain'):
         user = self.get_user_dct(user_name, project_name, domain_name)
         try:
             self.keystone.users.delete(user)
+            logging.info(f"User {user_name} deleted")
             return True
         except ks_exceptions.ClientException as e:
             if 'Unable to add token to revocation list' in str(e):
-                self.logger.warn('Exception %s while deleting user' % (
+                logging.warning('Exception %s while deleting user' % (
                                  str(e)))
                 return False
 
@@ -147,9 +155,10 @@ class O7kLib:
             if not domain_obj:
                 domain_obj = self.find_domain(domain_name)
             self.update_domain(domain_id=domain_obj.id, enabled=False)
+            logging.info(f"Domain {domain_name} deleted")
             return self.keystone.domains.delete(domain_obj)
         except http.NotFound:
-            print(f"Domain {domain_name} not found")
+            logging.warning(f"Domain {domain_name} not found")
 
     def add_user_role(self, user_name, role_name, project_name=None, domain_name=None):
         user = self.get_user_dct(user_name, project_name, domain_name)

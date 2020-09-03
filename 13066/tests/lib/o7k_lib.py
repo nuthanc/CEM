@@ -1,7 +1,8 @@
 from keystoneclient import client as ks_client
 from keystoneauth1 import identity as ks_identity
 from keystoneauth1 import session as ks_session
-from subprocess import check_output
+from keystoneauth1.exceptions import http
+from keystoneclient import exceptions as ks_exceptions
 
 class O7kLib:
 
@@ -85,32 +86,55 @@ class O7kLib:
         return None
 
     def create_project(self, project_name, domain_name='Default'):
-        if not self.keystone.projects.find(name=project_name):
+        try:
             domain = self.find_domain(domain_name)
             self.keystone.projects.create(name=project_name, domain=domain)
-        else:
-            print(f"Project {project_name} already present, not creating")
+        except http.Conflict:
+            print("Duplicate Project, not creating")
+        except Exception as e:
+            print(e)
 
     def create_domain(self, domain_name):
-        if not self.find_domain(self.domain_name):
+        try:
             self.keystone.domains.create(domain_name)
-        else:
-            print(f"Domain {domain_name} already present, not creating")
-
+        except http.Conflict:
+            print("Duplicate Domain, not creating")
+        except Exception as e:
+            print(e)
+        
     def create_role(self, role):
         self.keystone.roles.create(role)
 
     def create_user(self, user, password, email='', project_name=None,
                     enabled=True, domain_name=None):
-        project_id = self.get_tenant_dct(project_name).id
-        domain_id = self.find_domain(domain_name).id
-        self.keystone.users.create(
-            user, domain_id, project_id, password, email, enabled=enabled)
+        try:
+            project_id = self.get_tenant_dct(project_name).id
+            domain_id = self.find_domain(domain_name).id
+            self.keystone.users.create(
+                user, domain_id, project_id, password, email, enabled=enabled)
+        except http.Conflict:
+            print("Duplicate User, not creating")
+        except Exception as e:
+            print(e)
     
     def delete_project(self, name, obj=None):
-        if not obj:
-            obj = self.keystone.projects.find(name=name)
-        self.keystone.projects.delete(obj)
+        try:
+            if not obj:
+                obj = self.keystone.projects.find(name=name)
+            self.keystone.projects.delete(obj)
+        except http.NotFound:
+            print(f"Project {name} not found")
+        
+    def delete_user(self, user_name, project_name='admin', domain_name='admin_domain'):
+        user = self.get_user_dct(user_name, project_name, domain_name)
+        try:
+            self.keystone.users.delete(user)
+            return True
+        except ks_exceptions.ClientException as e:
+            if 'Unable to add token to revocation list' in str(e):
+                self.logger.warn('Exception %s while deleting user' % (
+                                 str(e)))
+                return False
 
     def update_domain(self, domain_id, domain_name=None,
                       description=None, enabled=None):
@@ -119,19 +143,17 @@ class O7kLib:
                                             enabled=enabled)
     
     def delete_domain(self, domain_name, domain_obj=None):
-        if not domain_obj:
-            domain_obj = self.find_domain(domain_name)
-        self.update_domain(domain_id=domain_obj.id, enabled=False)
-        return self.keystone.domains.delete(domain_obj)
+        try:
+            if not domain_obj:
+                domain_obj = self.find_domain(domain_name)
+            self.update_domain(domain_id=domain_obj.id, enabled=False)
+            return self.keystone.domains.delete(domain_obj)
+        except http.NotFound:
+            print(f"Domain {domain_name} not found")
 
     def add_user_role(self, user_name, role_name, project_name=None, domain_name=None):
-        check_output("")
-        #TODO Need to add user role
-    
-admin = O7kLib(username='admin', password='password', domain_name='admin_domain',
-            project_name='admin', auth_url='http://192.168.30.76:5000/v3')
-
-admin.create_domain('nuthan')
-admin.create_project(project_name='nuthan_project', domain_name='nuthan')
-admin.create_user(user='rovanova', password='c0ntrail123', project_name='nuthan_project', domain_name='nuthan')
-admin.add_user_role(user_name='rovanova', role_name='Member', project_name='nuthan_project', domain_name='nuthan')
+        user = self.get_user_dct(user_name, project_name, domain_name)
+        role = self.get_role_dct(role_name)
+        project = self.find_project(project_name)
+        domain = self.find_domain(domain_name)
+        self.keystone.roles.grant(role=role, user=user, project=project)

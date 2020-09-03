@@ -5,7 +5,7 @@ from keystoneauth1.exceptions import http
 from keystoneclient import exceptions as ks_exceptions
 import logging
 logging.basicConfig(
-    format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
+    format='%(asctime)s - %(lineno)d - %(levelname)s - %(message)s', level=logging.INFO, datefmt='%d-%b-%y %H:%M:%S')
 
 class O7kLib:
 
@@ -106,9 +106,6 @@ class O7kLib:
             logging.warning("Duplicate Domain, not creating")
         except Exception as e:
             print(e)
-        
-    def create_role(self, role):
-        self.keystone.roles.create(role)
 
     def create_user(self, user, password, email='', project_name=None,
                     enabled=True, domain_name=None):
@@ -123,14 +120,14 @@ class O7kLib:
         except Exception as e:
             print(e)
     
-    def delete_project(self, name, obj=None):
+    def delete_project(self, project_name, obj=None):
         try:
             if not obj:
-                obj = self.keystone.projects.find(name=name)
+                obj = self.keystone.projects.find(name=project_name)
             self.keystone.projects.delete(obj)
-            logging.info(f"Project {name} deleted")
+            logging.info(f"Project {project_name} deleted")
         except http.NotFound:
-            logging.warning(f"Project {name} not found")
+            logging.warning(f"Project {project_name} not found")
         
     def delete_user(self, user_name, project_name='admin', domain_name='admin_domain'):
         user = self.get_user_dct(user_name, project_name, domain_name)
@@ -166,3 +163,4 @@ class O7kLib:
         project = self.find_project(project_name)
         domain = self.find_domain(domain_name)
         self.keystone.roles.grant(role=role, user=user, project=project)
+        logging.info(f"User assigned {role_name} role")

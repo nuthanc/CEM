@@ -15,6 +15,7 @@
   * Feature tests done by him, comes up with Testplan
   Draft version: all test cases required to be executed
   * Test plan to be reviewed sent to Test Engineer
+    * **Please add the necessary tests to the feature test plan for the stories and make sure it is executed in merged master code before branch cut**
     * Pass logs and review
   * Duration: 6 weeks
   Done: From development point of view(Cut off date of R2008 branch)
@@ -38,3 +39,4 @@ Hand it over to the Testing team for the Solution testing
   * Automation
 
 * **Important**: Solution test Plan scenarios need to come from PLM or Dev
+* Please add the necessary tests to the feature test plan for the stories and make sure it is executed in merged master code before branch cut

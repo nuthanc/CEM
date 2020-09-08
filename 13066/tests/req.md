@@ -12,3 +12,15 @@
 * Tests around:
   * Get and list of all resources with no Error message
   * Failure of create and delete operations
+
+### Policy.yaml
+* Required field is data->policies
+  * List of dictionaries
+* Keys of dictionary
+  * resource: Dict
+    * verbs
+    * resources
+    * version
+    * namespace
+  * match: List
+    * List of dictionaries with *type* and *values* keys

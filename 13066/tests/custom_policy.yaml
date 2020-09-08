@@ -9,7 +9,7 @@ data:
   policies: |
     [
       {
-       "resource": {
+        "resource": {
           "verbs": ["*"],
           "resources": ["*"],
           "version": "*",

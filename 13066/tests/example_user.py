@@ -2,7 +2,7 @@ from lib.o7k_lib import O7kLib
 from subprocess import check_output
 
 
-class Example(O7kLib):
+class ExampleUser(O7kLib):
     def __init__(self, username=None, password=None, domain_name=None, project_name=None, auth_url=None):
         super().__init__(username=username, password=password,
                          domain_name=domain_name, project_name=project_name, auth_url=auth_url)
@@ -33,10 +33,10 @@ class Example(O7kLib):
         self.delete_domain(domain_name)
 
 
-# admin = Example(username='admin', password='password', domain_name='admin_domain',
+# admin = ExampleUser(username='admin', password='password', domain_name='admin_domain',
 #                project_name='admin', auth_url='http://192.168.30.76:5000/v3')
 # Utilizing classmethod to act as factory functions to get similar parameters as above
-admin = Example.admin()
+admin = ExampleUser.admin()
 admin.create_all('john', 'c0ntrail123', 'Member', 'new_project', 'new_domain')
 admin.delete_all('john', 'new_project', 'new_domain')
 

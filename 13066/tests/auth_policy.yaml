@@ -9,11 +9,13 @@ data:
   policies:
   - resource:
       verbs:
-      - '*'
+      - get
       resources:
+      - Pod
+      version:
       - '*'
-      version: '*'
-      namespace: '*'
+      namespace:
+      - '*'
     match:
     - type: role
       values:

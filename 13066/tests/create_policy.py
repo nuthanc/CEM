@@ -1,22 +1,79 @@
 from ruamel.yaml import YAML
-import ruamel.yaml
-from ast import literal_eval
+import pprint
 
-file_name = 'custom_policy.yaml'
-yaml2 = YAML(typ='safe')
-config = yaml2.load(open(file_name))
+def construct_config_map(policies=None):
+    policy_dict = {}
+    policy_dict['apiVersion'] = 'v1'
+    policy_dict['kind'] = 'ConfigMap'
+    policy_dict['metadata'] = {
+        'name': 'k8s-auth-policy',
+        'namespace': 'kube-system',
+        'labels': {
+            'k8s-app': 'k8s-keystone-auth'
+        }
+    }
+    if policies is None:
+        policies = [
+            {
+                'resource': {
+                    'verbs': ['*'],
+                    'resources': ['*'],
+                    'version': '*',
+                    'namespace': '*'
+                },
+                'match': [
+                    {
+                        'type': 'role',
+                        'values': ['*']
+                    },
+                    {
+                        'type': 'project',
+                        'values': ['admin']
+                    }
+                ]
+            }
+        ]
 
-# yaml = YAML()
-# config = yaml.load(open(file_name))
-print((config['metadata']['name']))
-policies = literal_eval(config['data']['policies'])
-policies.append({'abc': 'def'})
-config['data']['policies'] = str(policies)
+    policy_dict['data'] = {
+        'policies': policies
+    }
+    return policy_dict
 
 
+def create_config_map_file(policy_dict, filename=None):
+    if filename is None:
+        filename = 'auth_policy.yaml'
+    yaml = YAML()
+    yaml.dump(policy_dict, open(filename, 'w'))
 
-# print(policies)
-# policies.append({"resource": {}, "match": []})
 
-with open('output.yaml', 'w') as fp:
-  ruamel.yaml.dump(config, fp, Dumper=ruamel.yaml.RoundTripDumper)
+def create_policies(resource={}, match=[]):
+    if resource.get('verbs') is None:
+        resource['verbs'] = ['*']
+    if resource.get('resources') is None:
+        resource['resources'] = ['*']
+    if resource.get('version') is None:
+        resource['version'] = ['*']
+    if resource.get('namespace') is None:
+        resource['namespace'] = ['*']
+
+    if len(match) == 0:
+        role_dict = {
+            'type': 'role',
+            'values': ['*']
+        }
+        project_dict = {
+            'type': 'project',
+            'values': ['admin']
+        }
+        match.append(role_dict)
+        match.append(project_dict)
+
+    policies = [{'resource': resource, 'match': match}]
+    return policies
+
+
+# pprint.pprint(create_policies(resource={'verbs': ['get'], 'resources': ['Pod']}))
+policies = create_policies(resource={'verbs': ['get'], 'resources': ['Pod']})
+policy_dict = construct_config_map(policies)
+create_config_map_file(policy_dict)

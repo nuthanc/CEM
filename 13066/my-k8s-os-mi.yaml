@@ -2,7 +2,7 @@ series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
   image-tag:                    &image-tag                      "2008.83"
-  data-network:                 &data-network                   "192.168.40.0/24" #TODO Need to change i34 40 interface to enp4s0f1
+  data-network:                 &data-network                   "192.168.40.0/24" 
   control-network:              &control-network                "192.168.30.0/24" 
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"
 services:
@@ -83,6 +83,7 @@ services:
       public_fip_pool: "{'domain':'default-domain','project':'k8s-default','name':'__fip_pool_public__','network':'__public__'}"
       service_subnets: 10.96.0.0/12
       kubernetes_api_hostname: 192.168.40.29
+      kubernetes_api_secure_port: 6443
   contrail-kubernetes-node:
     charm: /root/tf-charms/contrail-kubernetes-node
     options:
@@ -221,15 +222,7 @@ services:
     num_units: 1
     to:
       - lxd:0
-  ubuntu:
-    charm: cs:ubuntu-15
-    num_units: 5
-    to:
-      - '0'
-      - '1'
-      - '2'
-      - '3'
-      - '4'
+  `
 machines:
   '0':
     constraints: tags=controller-0

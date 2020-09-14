@@ -74,6 +74,6 @@ def create_policies(resource={}, match=[]):
 
 
 # pprint.pprint(create_policies(resource={'verbs': ['get'], 'resources': ['Pod']}))
-policies = create_policies(resource={'verbs': ['get'], 'resources': ['Pod']})
-policy_dict = construct_config_map(policies)
-create_config_map_file(policy_dict)
+# policies = create_policies(resource={'verbs': ['get'], 'resources': ['Pod']})
+# policy_dict = construct_config_map(policies)
+# create_config_map_file(policy_dict)

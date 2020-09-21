@@ -5,4 +5,5 @@ export OS_PROJECT_DOMAIN_NAME=admin_domain
 export OS_PROJECT_NAME=admin
 export OS_DOMAIN_NAME=admin_domain
 export OS_PASSWORD=password
-export OS_AUTH_URL=http://192.168.30.76:5000/v3
+auth_url=$(juju status|grep 5000|awk '{print $5}')
+export OS_AUTH_URL=http://${auth_url}:5000/v3

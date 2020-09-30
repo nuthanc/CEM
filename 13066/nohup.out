@@ -1,1 +1,3 @@
 ERROR cannot deploy bundle: cannot unmarshal bundle contents: unmarshal document 0: yaml: line 227: found character that cannot start any token
+ERROR cannot deploy bundle: the provided bundle has the following errors:
+relation ["ubuntu:juju-info" "ntp:juju-info"] refers to application "ubuntu" not defined in this bundle

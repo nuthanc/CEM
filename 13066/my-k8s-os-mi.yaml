@@ -7,6 +7,8 @@ variables:
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"
 services:
   contrail-agent:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-agent
     options:
       docker-registry: *docker-registry
@@ -15,6 +17,8 @@ services:
       image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-analytics:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-analytics
     num_units: 3
     to: 
@@ -30,6 +34,8 @@ services:
       log-level: SYS_DEBUG
       min-cluster-size: 3
   contrail-analyticsdb:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-analyticsdb
     num_units: 3
     to: 
@@ -47,6 +53,8 @@ services:
       log-level: SYS_DEBUG
       min-cluster-size: 3
   contrail-controller:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-controller
     num_units: 3
     to: 
@@ -66,11 +74,15 @@ services:
       log-level: SYS_DEBUG
       min-cluster-size: 3
   contrail-keystone-auth:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-keystone-auth
     num_units: 1
     to:
       - '0'
   contrail-kubernetes-master:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-kubernetes-master
     options:
       cluster_name: k8s
@@ -85,6 +97,8 @@ services:
       kubernetes_api_hostname: 192.168.40.29
       kubernetes_api_secure_port: "6443"
   contrail-kubernetes-node:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-kubernetes-node
     options:
       docker-registry: *docker-registry
@@ -92,12 +106,16 @@ services:
       image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-openstack:
+    bindings:
+      "": mgmt
     charm: /root/tf-charms/contrail-openstack
     options:
       docker-registry: *docker-registry
       docker-registry-insecure: true
       image-tag: *image-tag
   docker:
+    bindings:
+      "": mgmt
     charm: cs:~containers/docker-59
     options:
       docker_runtime: custom
@@ -107,11 +125,15 @@ services:
         deb [arch={ARCH}] https://download.docker.com/linux/ubuntu
         {CODE} stable
   easyrsa:
+    bindings:
+      "": mgmt
     charm: cs:~containers/easyrsa-303
     num_units: 1
     to:
       - '0'
   etcd:
+    bindings:
+      "": mgmt
     charm: cs:~containers/etcd-501
     num_units: 1
     to:
@@ -119,6 +141,8 @@ services:
     options:
       channel: 3.2/stable
   glance:
+    bindings:
+      "": mgmt
     charm: cs:glance-297
     num_units: 1
     to:
@@ -126,6 +150,8 @@ services:
     options:
       openstack-origin: distro
   heat:
+    bindings:
+      "": mgmt
     charm: cs:heat-276
     num_units: 1
     to:
@@ -135,6 +161,8 @@ services:
       debug: true
       openstack-origin: distro
   keystone:
+    bindings:
+      "": mgmt
     charm: cs:keystone-315
     num_units: 1
     to:
@@ -145,6 +173,8 @@ services:
       debug: true
       openstack-origin: distro
   kubernetes-master:
+    bindings:
+      "": mgmt
     charm: cs:~containers/kubernetes-master-827
     num_units: 1
     to:
@@ -168,6 +198,8 @@ services:
       channel: 1.18/stable
       ingress: false
   mysql:
+    bindings:
+      "": mgmt
     charm: cs:percona-cluster-290
     num_units: 1
     to:
@@ -178,6 +210,8 @@ services:
       performance-schema: true
       root-password: password
   neutron-api:
+    bindings:
+      "": mgmt
     charm: cs:neutron-api-286
     num_units: 1
     to:
@@ -188,6 +222,8 @@ services:
       neutron-security-groups: true
       openstack-origin: distro
   nova-cloud-controller:
+    bindings:
+      "": mgmt
     charm: cs:nova-cloud-controller-345
     num_units: 1
     to:
@@ -198,6 +234,8 @@ services:
       network-manager: Neutron
       openstack-origin: distro
   nova-compute:
+    bindings:
+      "": mgmt
     charm: cs:nova-compute-318
     num_units: 1
     to:
@@ -210,8 +248,10 @@ services:
     charm: cs:ntp
     num_units: 0
     options:
-       source: 10.204.217.158
+      source: 10.204.217.158
   openstack-dashboard:
+    bindings:
+      "": mgmt
     charm: cs:openstack-dashboard-304
     num_units: 1
     to:
@@ -220,6 +260,8 @@ services:
       debug: 'true'
       openstack-origin: distro
   rabbitmq-server:
+    bindings:
+      "": mgmt
     charm: cs:rabbitmq-server-103
     num_units: 1
     to:

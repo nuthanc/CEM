@@ -15,7 +15,19 @@ Resolving charm: cs:openstack-dashboard-304
 Resolving charm: cs:rabbitmq-server-103
 Resolving charm: cs:ubuntu-15
 Executing changes:
-- set application options for contrail-controller
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
 - upload charm /root/tf-charms/contrail-kubernetes-master for series bionic
 - deploy application contrail-kubernetes-master on bionic using /root/tf-charms/contrail-kubernetes-master
 - upload charm /root/tf-charms/contrail-kubernetes-node for series bionic
@@ -177,645 +189,1539 @@ Executing changes:
 - add unit rabbitmq-server/0 to 0/lxd/7
 Deploy of bundle completed.
 Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Powering on
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Powering on
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Loading ephemeral
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring storage
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Powering on
-4 pending 192.168.30.29 noden29 bionic default Deploying: Powering on
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Performing PXE boot
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring storage
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Powering on
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Loading ephemeral
-Deploying
-0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring storage
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Installing OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deploying: Configuring OS
-3 pending 192.168.30.34 nodei34 bionic default Deploying: Configuring OS
-1 pending 192.168.30.9 nodec9 bionic default Deploying: Configuring OS
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 pending 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 pending 192.168.30.29 noden29 bionic default Deployed
-3 pending 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
+Deploying
+0 pending 192.168.30.20 noden20 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
 0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deploying: Configuring OS
+
+
+
+
 Deploying
-0 pending 192.168.30.20 noden20 bionic default Deployed
-4 started 192.168.30.29 noden29 bionic default Deployed
-3 started 192.168.30.34 nodei34 bionic default Deployed
-1 started 192.168.30.9 nodec9 bionic default Deployed
-2 pending 192.168.30.19 noden19 bionic default Deployed
-# Host 192.168.30.19 found: line 25
-/root/.ssh/known_hosts updated.
-Original contents retained as /root/.ssh/known_hosts.old
-# Host 192.168.30.20 found: line 25
-/root/.ssh/known_hosts updated.
-Original contents retained as /root/.ssh/known_hosts.old
-# Host 192.168.30.9 found: line 25
-/root/.ssh/known_hosts updated.
-Original contents retained as /root/.ssh/known_hosts.old
-# Host 192.168.30.29 found: line 25
-/root/.ssh/known_hosts updated.
-Original contents retained as /root/.ssh/known_hosts.old
-# Host 192.168.30.34 found: line 25
-/root/.ssh/known_hosts updated.
-Original contents retained as /root/.ssh/known_hosts.old
-[]
-[b"Warning: Permanently added '192.168.30.19' (ECDSA) to the list of known hosts.\r\n"]
-[]
-[b"Warning: Permanently added '192.168.30.20' (ECDSA) to the list of known hosts.\r\n"]
-[]
-[b"Warning: Permanently added '192.168.30.9' (ECDSA) to the list of known hosts.\r\n"]
-[]
-[b"Warning: Permanently added '192.168.30.29' (ECDSA) to the list of known hosts.\r\n"]
-[]
-[b"Warning: Permanently added '192.168.30.34' (ECDSA) to the list of known hosts.\r\n"]
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying
+0 started 192.168.30.20 noden20 bionic default Deployed
+
+
+
+
+Deploying

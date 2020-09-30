@@ -224,6 +224,6 @@ Underlay to overlay
 ### Need to do for multi-interface
 ```sh
 juju add-space data 192.168.40.0/24
-
+# The above is not persistent, so adding it in MAAS itslef
 # In bundle file, bindings under kubernetes-worker
 ```

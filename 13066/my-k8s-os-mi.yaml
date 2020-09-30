@@ -224,7 +224,7 @@ services:
     num_units: 1
     to:
       - lxd:0
-  `
+
 machines:
   '0':
     constraints: tags=controller-0

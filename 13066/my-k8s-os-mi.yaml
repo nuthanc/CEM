@@ -1,7 +1,7 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2008.109" #TODO Add juju spaces and bindings in bundle file
+  image-tag:                    &image-tag                      "master.1381" 
   data-network:                 &data-network                   "192.168.40.0/24" 
   control-network:              &control-network                "192.168.30.0/24" 
   vhost-gateway:                &vhost-gateway                  "192.168.40.254"
@@ -158,6 +158,8 @@ services:
       enable-metrics: false
       service-cidr: 10.96.0.0/12
   kubernetes-worker:
+    bindings:
+      "": data
     charm: cs:~containers/kubernetes-worker-665
     num_units: 1
     to:

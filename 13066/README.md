@@ -220,3 +220,11 @@ Deleted the ip route rule
 Underlay to overlay
 
 ```
+
+### Need to do for multi-interface
+```sh
+juju add-space data
+juju move-to-space 192.168.40.0/24
+
+# In bundle file, bindings under kubernetes-worker
+```

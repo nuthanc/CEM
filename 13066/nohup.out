@@ -1,3 +1,36 @@
 ERROR cannot deploy bundle: cannot unmarshal bundle contents: unmarshal document 0: yaml: line 227: found character that cannot start any token
 ERROR cannot deploy bundle: the provided bundle has the following errors:
 relation ["ubuntu:juju-info" "ntp:juju-info"] refers to application "ubuntu" not defined in this bundle
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-kubernetes-master for series bionic
+- deploy application contrail-kubernetes-master on bionic using /root/tf-charms/contrail-kubernetes-master
+ERROR cannot deploy bundle: cannot deploy application "contrail-kubernetes-master": option "kubernetes_api_secure_port" expected string, got 6443

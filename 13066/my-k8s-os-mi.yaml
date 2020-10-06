@@ -235,7 +235,7 @@ services:
       openstack-origin: distro
   nova-compute:
     bindings:
-      "": mgmt
+      "": data
     charm: cs:nova-compute-318
     num_units: 1
     to:

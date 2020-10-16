@@ -4,5 +4,5 @@ export OS_USERNAME=naruto
 export OS_PROJECT_DOMAIN_NAME=default
 export OS_PROJECT_NAME=naruto-project
 export OS_PASSWORD=password
-export OS_AUTH_URL=http://192.168.30.78:5000/v3
+export OS_AUTH_URL=http://192.168.7.78:5000/v3
 export OS_DOMAIN_NAME=default

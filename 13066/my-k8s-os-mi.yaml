@@ -1,14 +1,14 @@
 series: bionic
 variables:
-  docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "master.1381" 
-  data-network:                 &data-network                   "192.168.40.0/24" 
-  control-network:              &control-network                "192.168.30.0/24" 
-  vhost-gateway:                &vhost-gateway                  "192.168.40.254"
+  docker-registry: &docker-registry 'bng-artifactory.juniper.net/contrail-nightly'
+  image-tag: &image-tag 'master.1381'
+  data-network: &data-network '192.168.27.0/24'
+  control-network: &control-network '192.168.7.0/24'
+  vhost-gateway: &vhost-gateway '192.168.27.254'
 services:
   contrail-agent:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-agent
     options:
       docker-registry: *docker-registry
@@ -18,10 +18,10 @@ services:
       log-level: SYS_DEBUG
   contrail-analytics:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-analytics
     num_units: 3
-    to: 
+    to:
       - '0'
       - '3'
       - '4'
@@ -35,10 +35,10 @@ services:
       min-cluster-size: 3
   contrail-analyticsdb:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-analyticsdb
     num_units: 3
-    to: 
+    to:
       - '0'
       - '3'
       - '4'
@@ -54,10 +54,10 @@ services:
       min-cluster-size: 3
   contrail-controller:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-controller
     num_units: 3
-    to: 
+    to:
       - '0'
       - '3'
       - '4'
@@ -75,14 +75,14 @@ services:
       min-cluster-size: 3
   contrail-keystone-auth:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-keystone-auth
     num_units: 1
     to:
       - '0'
   contrail-kubernetes-master:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-kubernetes-master
     options:
       cluster_name: k8s
@@ -94,11 +94,11 @@ services:
       log-level: SYS_DEBUG
       public_fip_pool: "{'domain':'default-domain','project':'k8s-default','name':'__fip_pool_public__','network':'__public__'}"
       service_subnets: 10.96.0.0/12
-      kubernetes_api_hostname: 192.168.40.29
-      kubernetes_api_secure_port: "6443"
+      kubernetes_api_hostname: 192.168.27.29
+      kubernetes_api_secure_port: '6443'
   contrail-kubernetes-node:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-kubernetes-node
     options:
       docker-registry: *docker-registry
@@ -107,7 +107,7 @@ services:
       log-level: SYS_DEBUG
   contrail-openstack:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: /root/tf-charms/contrail-openstack
     options:
       docker-registry: *docker-registry
@@ -115,7 +115,7 @@ services:
       image-tag: *image-tag
   docker:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:~containers/docker-59
     options:
       docker_runtime: custom
@@ -126,14 +126,14 @@ services:
         {CODE} stable
   easyrsa:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:~containers/easyrsa-303
     num_units: 1
     to:
       - '0'
   etcd:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:~containers/etcd-501
     num_units: 1
     to:
@@ -142,7 +142,7 @@ services:
       channel: 3.2/stable
   glance:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:glance-297
     num_units: 1
     to:
@@ -151,7 +151,7 @@ services:
       openstack-origin: distro
   heat:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:heat-276
     num_units: 1
     to:
@@ -162,7 +162,7 @@ services:
       openstack-origin: distro
   keystone:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:keystone-315
     num_units: 1
     to:
@@ -174,11 +174,11 @@ services:
       openstack-origin: distro
   kubernetes-master:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:~containers/kubernetes-master-827
     num_units: 1
     to:
-      - '4' 
+      - '4'
     expose: true
     options:
       authorization-mode: Node,RBAC
@@ -189,7 +189,7 @@ services:
       service-cidr: 10.96.0.0/12
   kubernetes-worker:
     bindings:
-      "": data
+      '': data
     charm: cs:~containers/kubernetes-worker-665
     num_units: 1
     to:
@@ -199,7 +199,7 @@ services:
       ingress: false
   mysql:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:percona-cluster-290
     num_units: 1
     to:
@@ -211,7 +211,7 @@ services:
       root-password: password
   neutron-api:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:neutron-api-286
     num_units: 1
     to:
@@ -223,7 +223,7 @@ services:
       openstack-origin: distro
   nova-cloud-controller:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:nova-cloud-controller-345
     num_units: 1
     to:
@@ -235,7 +235,7 @@ services:
       openstack-origin: distro
   nova-compute:
     bindings:
-      "": data
+      '': data
     charm: cs:nova-compute-318
     num_units: 1
     to:
@@ -251,7 +251,7 @@ services:
       source: 10.204.217.158
   openstack-dashboard:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:openstack-dashboard-304
     num_units: 1
     to:
@@ -261,7 +261,7 @@ services:
       openstack-origin: distro
   rabbitmq-server:
     bindings:
-      "": mgmt
+      '': mgmt
     charm: cs:rabbitmq-server-103
     num_units: 1
     to:
@@ -292,7 +292,7 @@ machines:
   '4':
     constraints: tags=controller-2
     series: bionic
-  
+
 relations:
   - - kubernetes-master:kube-api-endpoint
     - kubernetes-worker:kube-api-endpoint
@@ -305,7 +305,7 @@ relations:
   - - kubernetes-worker:certificates
     - easyrsa:client
   - - etcd:certificates
-    - easyrsa:client 
+    - easyrsa:client
   - - easyrsa:client
     - contrail-controller:tls-certificates
   - - easyrsa:client

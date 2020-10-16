@@ -1,12 +1,12 @@
 provider_config:
   bms:
-    ssh_user: "root"
+    ssh_user: 'root'
     ssh_pwd:
-    domainsuffix: "maas"
+    domainsuffix: 'maas'
 
 instances:
-  192_168_30_20:
-    ip: 192.168.30.20
+  192.168.7_20:
+    ip: 192.168.7.20
     provider: bms
     roles:
       analytics:
@@ -17,8 +17,8 @@ instances:
       config_database:
       control:
       webui:
-  192_168_30_29:
-    ip: 192.168.30.29
+  192.168.7_29:
+    ip: 192.168.7.29
     provider: bms
     roles:
       analytics:
@@ -32,8 +32,8 @@ instances:
       # vrouter:
       k8s_master:
       kubemanager:
-  192_168_30_34:
-    ip: 192.168.30.34
+  192.168.7_34:
+    ip: 192.168.7.34
     provider: bms
     roles:
       analytics:
@@ -44,14 +44,14 @@ instances:
       config_database:
       control:
       webui:
-  192_168_30_9:
-    ip: 192.168.30.9
+  192.168.7_9:
+    ip: 192.168.7.9
     provider: bms
     roles:
       vrouter:
       k8s_node:
-  # 192_168_30_19:
-  #   ip: 192.168.30.19
+  # 192.168.7_19:
+  #   ip: 192.168.7.19
   #   provider: bms
   #   roles:
   #     vrouter:
@@ -63,13 +63,13 @@ global_configuration:
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
-  CONTRAIL_CONTAINER_TAG: "2008.50"
+  CONTRAIL_CONTAINER_TAG: '2008.50'
   CLOUD_ORCHESTRATOR: kubernetes
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
-  SSL_ENABLE: "true"
-  RABBITMQ_USE_SSL: "true"
-  CASSANDRA_SSL_ENABLE: "true"
+  SSL_ENABLE: 'true'
+  RABBITMQ_USE_SSL: 'true'
+  CASSANDRA_SSL_ENABLE: 'true'
   KUBERNETES_PUBLIC_FIP_POOL:
     domain: default-domain
     name: __fip_pool_public__
@@ -77,30 +77,30 @@ contrail_configuration:
     project: k8s-default
 
 deployment:
-    orchestrator: kubernetes
-    deployer: juju
+  orchestrator: kubernetes
+  deployer: juju
 
 test_configuration:
-    image_web_server: 10.204.217.158
-    auth_port: 35357
-    auth_url: http://192.168.30.30:35357/v3
-    web_server:
-        server: 10.204.216.50
-        username: bhushana
-        password: c0ntrail!23
-        report_path: /home/bhushana/Documents/technical/sanity/juju-k8s
-        log_path: /home/bhushana/Documents/technical/logs
-        web_root: Docs/logs
-    mail_server:
-        server: 10.47.226.20 
-        port: 25
-        to: nuthanc@juniper.net
-        sender: contrailbuild@juniper.net
-    stack_user: admin
-    stack_password: password
-    stack_domain: default-domain
-    stack_tenant: k8s-default
-    vnc_auth_user: admin
-    vnc_auth_password: password
-    vnc_auth_tenant: admin
-    vnc_auth_domain: admin_domain
+  image_web_server: 10.204.217.158
+  auth_port: 35357
+  auth_url: http://192.168.7.30:35357/v3
+  web_server:
+    server: 10.204.216.50
+    username: bhushana
+    password: c0ntrail!23
+    report_path: /home/bhushana/Documents/technical/sanity/juju-k8s
+    log_path: /home/bhushana/Documents/technical/logs
+    web_root: Docs/logs
+  mail_server:
+    server: 10.47.226.20
+    port: 25
+    to: nuthanc@juniper.net
+    sender: contrailbuild@juniper.net
+  stack_user: admin
+  stack_password: password
+  stack_domain: default-domain
+  stack_tenant: k8s-default
+  vnc_auth_user: admin
+  vnc_auth_password: password
+  vnc_auth_tenant: admin
+  vnc_auth_domain: admin_domain

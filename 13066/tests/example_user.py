@@ -34,7 +34,7 @@ class ExampleUser(O7kLib):
 
 
 # admin = ExampleUser(username='admin', password='password', domain_name='admin_domain',
-#                project_name='admin', auth_url='http://192.168.30.76:5000/v3')
+#                project_name='admin', auth_url='http://192.168.7.76:5000/v3')
 # Utilizing classmethod to act as factory functions to get similar parameters as above
 admin = ExampleUser.admin()
 admin.create_all('john', 'c0ntrail123', 'Member', 'new_project', 'new_domain')

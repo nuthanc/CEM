@@ -1,10 +1,10 @@
 series: bionic
 variables:
-  docker-registry: &docker-registry 'bng-artifactory.juniper.net/contrail-nightly'
-  image-tag: &image-tag '2008.121'
+  docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
+  image-tag:                    &image-tag                      "2008.121"
   # data-network:                 &data-network                   "192.168.27.0/24"
-  control-network: &control-network '192.168.7.0/24'
-  vhost-gateway: &vhost-gateway '192.168.7.18'
+  control-network:              &control-network                "192.168.7.0/24"
+  vhost-gateway:                &vhost-gateway                  "192.168.7.18"
 services:
   contrail-agent:
     charm: /root/tf-charms/contrail-agent
@@ -17,7 +17,7 @@ services:
   contrail-analytics:
     charm: /root/tf-charms/contrail-analytics
     num_units: 3
-    to:
+    to: 
       - '0'
       - '3'
       - '4'
@@ -32,7 +32,7 @@ services:
   contrail-analyticsdb:
     charm: /root/tf-charms/contrail-analyticsdb
     num_units: 3
-    to:
+    to: 
       - '0'
       - '3'
       - '4'
@@ -49,7 +49,7 @@ services:
   contrail-controller:
     charm: /root/tf-charms/contrail-controller
     num_units: 3
-    to:
+    to: 
       - '0'
       - '3'
       - '4'
@@ -146,7 +146,7 @@ services:
     charm: cs:~containers/kubernetes-master-827
     num_units: 1
     to:
-      - '4'
+      - '4' 
     expose: true
     options:
       authorization-mode: Node,RBAC
@@ -206,7 +206,7 @@ services:
     charm: cs:ntp
     num_units: 0
     options:
-      source: 10.204.217.158
+       source: 10.204.217.158
   openstack-dashboard:
     charm: cs:openstack-dashboard-304
     num_units: 1
@@ -245,7 +245,7 @@ machines:
   '4':
     constraints: tags=controller-2
     series: bionic
-
+  
 relations:
   - - kubernetes-master:kube-api-endpoint
     - kubernetes-worker:kube-api-endpoint
@@ -258,7 +258,7 @@ relations:
   - - kubernetes-worker:certificates
     - easyrsa:client
   - - etcd:certificates
-    - easyrsa:client
+    - easyrsa:client 
   - - easyrsa:client
     - contrail-controller:tls-certificates
   - - easyrsa:client

@@ -2,9 +2,9 @@ series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
   image-tag:                    &image-tag                      "2008.121"
-  # data-network:                 &data-network                   "192.168.40.0/24"
-  control-network:              &control-network                "192.168.30.0/24"
-  vhost-gateway:                &vhost-gateway                  "192.168.30.18"
+  # data-network:                 &data-network                   "192.168.27.0/24"
+  control-network:              &control-network                "192.168.7.0/24"
+  vhost-gateway:                &vhost-gateway                  "192.168.7.18"
 services:
   contrail-agent:
     charm: /root/tf-charms/contrail-agent

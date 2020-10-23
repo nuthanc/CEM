@@ -1,19 +1,17 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "master.1381" 
-  data-network:                 &data-network                   "192.168.40.0/24" 
-  control-network:              &control-network                "192.168.30.0/24" 
-  vhost-gateway:                &vhost-gateway                  "192.168.40.254"
+  image-tag:                    &image-tag                      "2011.34" 
+  data-network:                 &data-network                   "192.168.27.0/24" 
+  control-network:              &control-network                "192.168.7.0/24" 
+  # vhost-gateway:                &vhost-gateway                  "192.168.27.254"
 services:
   contrail-agent:
-    bindings:
-      "": mgmt
     charm: /root/tf-charms/contrail-agent
     options:
       docker-registry: *docker-registry
       docker-registry-insecure: true
-      vhost-gateway: *vhost-gateway
+      # vhost-gateway: *vhost-gateway
       image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-analytics:
@@ -94,7 +92,7 @@ services:
       log-level: SYS_DEBUG
       public_fip_pool: "{'domain':'default-domain','project':'k8s-default','name':'__fip_pool_public__','network':'__public__'}"
       service_subnets: 10.96.0.0/12
-      kubernetes_api_hostname: 192.168.40.29
+      kubernetes_api_hostname: 192.168.27.29
       kubernetes_api_secure_port: "6443"
   contrail-kubernetes-node:
     bindings:
@@ -267,6 +265,8 @@ services:
     to:
       - lxd:0
   ubuntu:
+    bindings:
+      "": mgmt
     charm: cs:ubuntu-15
     num_units: 5
     to:

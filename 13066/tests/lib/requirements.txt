@@ -15,7 +15,7 @@ command-not-found==0.3
 constantly==15.1.0
 convoy==0.4.4
 crochet==1.4.0
-cryptography==2.1.4
+cryptography==3.2
 debtcollector==2.2.0
 distro-info==0.18
 Django==1.11.29

@@ -229,8 +229,3 @@ Second non-admin project(admin domain):
 Different domain
 Different roles
 Different resources
-<<<<<<< HEAD
-
-28:03
-=======
->>>>>>> 6ab90620e1b524586e6671884f004c28f5db0c18

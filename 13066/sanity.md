@@ -40,7 +40,7 @@ sudo systemctl restart sshd
 ```sh
 # change the keystone ip in the contrail_test_input and enable ssl or disable it if deployment is not done without it
 # If ssl is enabled, need to mount volume
-docker run --name nuthan_test3 --entrypoint /bin/bash --network=host -v /etc/contrail:/etc/contrail -it bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:2008.50
+docker run --name nuthan_test --entrypoint /bin/bash --network=host -v /etc/contrail:/etc/contrail -it bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:2011.61
 
 export PYTHONPATH=./scripts:./fixtures TEST_CONFIG_FILE=contrail_test_input.yaml
 export MX_GW_TEST=0

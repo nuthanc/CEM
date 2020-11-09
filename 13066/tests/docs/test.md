@@ -67,6 +67,8 @@ k create ns project
 # Created RBAC rule in webui
 # default-domain:default-project
 juju config kubernetes-master keystone-policy="$(cat ../policy.yaml)"
+juju config kubernetes-master keystone-policy="$(cat policy_v2.yaml)"
+# For v2_policy, the role should be explicit instead of *
 k describe configmap -n kube-system k8s-auth-policy
 source naruto_stackrc
 k get pods

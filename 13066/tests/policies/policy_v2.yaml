@@ -8,17 +8,17 @@ data:
     [
       {
         "users": {
-          "projects": ["default-project1"],
-          "roles": ["*"]
+          "projects": ["test_project"],
+          "roles": ["Member"]
         },
         "resource_permissions": {
-          "*/pods": ["get", "list", "watch"]
+          "easy/pods": ["get", "list", "watch", "create"]
         }
       },
       {
         "users": {
           "projects": ["admin"],
-          "roles": ["*"]
+          "roles": ["admin"]
         },
         "resource_permissions": {
           "*/*": ["*"]

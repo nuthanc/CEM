@@ -108,12 +108,3 @@ test_configuration:
     to: nuthanc@juniper.net
     sender: contrailbuild@juniper.net
   use_project_scoped_token: True
-  # test_domain: admin_domain
-  # stack_user: admin
-  # stack_password: password
-  # stack_domain: default-domain
-  # stack_tenant: k8s-default
-  # vnc_auth_user: admin
-  # vnc_auth_password: password
-  # vnc_auth_tenant: admin
-  # vnc_auth_domain: admin_domain

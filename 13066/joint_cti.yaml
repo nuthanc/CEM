@@ -17,6 +17,7 @@ instances:
       config_database:
       control:
       webui:
+      openstack:
   192.168.7_29:
     ip: 192.168.7.29
     provider: bms
@@ -44,6 +45,7 @@ instances:
       config_database:
       control:
       webui:
+      openstack:
   192.168.7_19:
     ip: 192.168.7.19
     provider: bms

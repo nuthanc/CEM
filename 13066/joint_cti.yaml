@@ -17,7 +17,6 @@ instances:
       config_database:
       control:
       webui:
-      openstack:
   192.168.7_29:
     ip: 192.168.7.29
     provider: bms
@@ -30,7 +29,6 @@ instances:
       config_database:
       control:
       webui:
-      openstack:
       # vrouter:
       k8s_master:
       kubemanager:
@@ -46,13 +44,12 @@ instances:
       config_database:
       control:
       webui:
-      openstack:
-  # 192.168.7_9:
-  #   ip: 192.168.7.9
-  #   provider: bms
-  #   roles:
-  #     vrouter:
-  #     k8s_node:
+  192.168.7_19:
+    ip: 192.168.7.19
+    provider: bms
+    roles:
+      vrouter:
+      k8s_node:
   192.168.7_9:
     ip: 192.168.7.9
     provider: bms
@@ -61,13 +58,13 @@ instances:
       openstack_compute:
 
 global_configuration:
-  CONTAINER_REGISTRY: tungstenfabric
+  CONTAINER_REGISTRY: bng-artifactory.juniper.net/contrail-nightly
   REGISTRY_PRIVATE_INSECURE: True
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
   CONTRAIL_CONTAINER_TAG: '2011.61'
-  CLOUD_ORCHESTRATOR: openstack
+  CLOUD_ORCHESTRATOR: kubernetes
   OPENSTACK_VERSION: queens
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
@@ -79,18 +76,18 @@ contrail_configuration:
     name: __fip_pool_public__
     network: __public__
     project: k8s-default
+
 orchestrator_configuration:
   keystone:
     version: v3
     password: password
     domain: admin_domain
     region: RegionOne
-    # ssl:
-    #     certs: /etc/contrail/ssl/certs/ca-cert.pem
 
 deployment:
   orchestrator: openstack
   deployer: juju
+  additional_orchestrator: kubernetes
 
 test_configuration:
   image_web_server: 10.204.217.158
@@ -110,3 +107,11 @@ test_configuration:
     sender: contrailbuild@juniper.net
   use_project_scoped_token: True
   test_domain: admin_domain
+  stack_user: admin
+  stack_password: password
+  stack_domain: default-domain
+  stack_tenant: k8s-default
+  vnc_auth_user: admin
+  vnc_auth_password: password
+  vnc_auth_tenant: admin
+  vnc_auth_domain: admin_domain

@@ -44,8 +44,8 @@ instances:
       config_database:
       control:
       webui:
-  192.168.7_9:
-    ip: 192.168.7.9
+  192.168.7_19:
+    ip: 192.168.7.19
     provider: bms
     roles:
       vrouter:
@@ -63,7 +63,7 @@ global_configuration:
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
-  CONTRAIL_CONTAINER_TAG: '2008.50'
+  CONTRAIL_CONTAINER_TAG: '2011.61'
   CLOUD_ORCHESTRATOR: kubernetes
   AUTH_MODE: keystone
   KEYSTONE_AUTH_URL_VERSION: /v3
@@ -83,7 +83,7 @@ deployment:
 test_configuration:
   image_web_server: 10.204.217.158
   auth_port: 35357
-  auth_url: http://192.168.7.30:35357/v3
+  auth_url: http://192.168.7.4:35357/v3
   web_server:
     server: 10.204.216.50
     username: bhushana

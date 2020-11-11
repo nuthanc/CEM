@@ -4,7 +4,7 @@ variables:
   image-tag:                    &image-tag                      "2011.61" 
   data-network:                 &data-network                   "192.168.27.0/24" 
   control-network:              &control-network                "192.168.7.0/24" 
-  vhost-gateway:                &vhost-gateway                  "192.168.27.1"
+  # vhost-gateway:                &vhost-gateway                  "192.168.27.1"
 services:
   contrail-agent:
     charm: /root/tf-charms/contrail-agent

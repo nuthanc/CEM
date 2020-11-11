@@ -11,7 +11,7 @@ services:
     options:
       docker-registry: *docker-registry
       docker-registry-insecure: true
-      vhost-gateway: *vhost-gateway
+      # vhost-gateway: *vhost-gateway
       image-tag: *image-tag
       log-level: SYS_DEBUG
   contrail-analytics:

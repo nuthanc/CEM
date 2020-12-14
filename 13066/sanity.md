@@ -54,5 +54,5 @@ bash -x run_tests.sh -m -U -T ci_k8s_sanity -t
 
 ### Docker container for keystone feature
 ```sh
-docker run --name nuthan_test2 --entrypoint /bin/bash --env-file ./env_file -v /root/contrail_test_input.yaml:/nuthanc-tf-test/contrail_test_input.yaml -v /root/nuthanc-tf-test:/nuthanc-tf-test -v /etc/contrail:/etc/contrail -v /root/.ssh:/root/.ssh --network=host -it bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:2011.102
+docker run --name nuthan_test2 --entrypoint /bin/bash --env-file ./env_file -v /root/contrail_test_input.yaml:/nuthanc-tf-test/contrail_test_input.yaml -v /root/nuthanc-tf-test:/nuthanc-tf-test -v /etc/contrail:/etc/contrail -v /root/.ssh:/root/.ssh -v /root/.kube/config:/root/.kube/config --network=host -it bng-artifactory.juniper.net/contrail-nightly/contrail-test-test:2011.128
 ```

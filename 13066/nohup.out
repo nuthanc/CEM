@@ -3334,3 +3334,321 @@ Original contents retained as /root/.ssh/known_hosts.old
 [b"Warning: Permanently added '192.168.7.29' (ECDSA) to the list of known hosts.\r\n"]
 []
 [b"Warning: Permanently added '192.168.7.34' (ECDSA) to the list of known hosts.\r\n"]
+Resolving charm: cs:~containers/docker-59
+ERROR cannot deploy bundle: cannot resolve URL "cs:~containers/docker-59": cannot resolve charm URL "cs:~containers/docker-59": cannot get "/~containers/docker-59/meta/any?include=id&include=supported-series&include=published": Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/meta/any?include=id&include=supported-series&include=published": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:47680->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-kubernetes-master for series bionic
+- deploy application contrail-kubernetes-master on bionic using /root/tf-charms/contrail-kubernetes-master
+- upload charm /root/tf-charms/contrail-kubernetes-node for series bionic
+- deploy application contrail-kubernetes-node on bionic using /root/tf-charms/contrail-kubernetes-node
+- upload charm /root/tf-charms/contrail-openstack for series bionic
+- deploy application contrail-openstack on bionic using /root/tf-charms/contrail-openstack
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:57588->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- set application options for contrail-controller
+- set application options for contrail-kubernetes-master
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:38301->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-91
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- set application options for contrail-controller
+- set application options for contrail-kubernetes-master
+- upload charm cs:~containers/docker-91 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-91": cannot retrieve charm "cs:~containers/docker-91": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-91/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:49592->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- set application options for contrail-controller
+- set application options for contrail-kubernetes-master
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:50426->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-kubernetes-master for series bionic
+- deploy application contrail-kubernetes-master on bionic using /root/tf-charms/contrail-kubernetes-master
+- upload charm /root/tf-charms/contrail-kubernetes-node for series bionic
+- deploy application contrail-kubernetes-node on bionic using /root/tf-charms/contrail-kubernetes-node
+- upload charm /root/tf-charms/contrail-openstack for series bionic
+- deploy application contrail-openstack on bionic using /root/tf-charms/contrail-openstack
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:47412->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- set application options for contrail-controller
+- set application options for contrail-kubernetes-master
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:43648->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-kubernetes-master for series bionic
+- deploy application contrail-kubernetes-master on bionic using /root/tf-charms/contrail-kubernetes-master
+- upload charm /root/tf-charms/contrail-kubernetes-node for series bionic
+- deploy application contrail-kubernetes-node on bionic using /root/tf-charms/contrail-kubernetes-node
+- upload charm /root/tf-charms/contrail-openstack for series bionic
+- deploy application contrail-openstack on bionic using /root/tf-charms/contrail-openstack
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:42080->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- set application options for contrail-controller
+- set application options for contrail-kubernetes-master
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:35633->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- set application options for contrail-controller
+- set application options for contrail-kubernetes-master
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:41173->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-59
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-kubernetes-master for series bionic
+- deploy application contrail-kubernetes-master on bionic using /root/tf-charms/contrail-kubernetes-master
+- upload charm /root/tf-charms/contrail-kubernetes-node for series bionic
+- deploy application contrail-kubernetes-node on bionic using /root/tf-charms/contrail-kubernetes-node
+- upload charm /root/tf-charms/contrail-openstack for series bionic
+- deploy application contrail-openstack on bionic using /root/tf-charms/contrail-openstack
+- upload charm cs:~containers/docker-59 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-59": cannot retrieve charm "cs:~containers/docker-59": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-59/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:49843->127.0.0.53:53: i/o timeout
+Resolving charm: cs:~containers/docker-91
+Resolving charm: cs:~containers/easyrsa-303
+Resolving charm: cs:~containers/etcd-501
+Resolving charm: cs:glance-297
+Resolving charm: cs:heat-276
+Resolving charm: cs:keystone-315
+Resolving charm: cs:~containers/kubernetes-master-827
+Resolving charm: cs:~containers/kubernetes-worker-665
+Resolving charm: cs:percona-cluster-290
+Resolving charm: cs:neutron-api-286
+Resolving charm: cs:nova-cloud-controller-345
+Resolving charm: cs:nova-compute-318
+Resolving charm: cs:ntp
+Resolving charm: cs:openstack-dashboard-304
+Resolving charm: cs:rabbitmq-server-103
+Resolving charm: cs:ubuntu-15
+Executing changes:
+- upload charm /root/tf-charms/contrail-agent for series bionic
+- deploy application contrail-agent on bionic using /root/tf-charms/contrail-agent
+- upload charm /root/tf-charms/contrail-analytics for series bionic
+- deploy application contrail-analytics on bionic using /root/tf-charms/contrail-analytics
+- expose contrail-analytics
+- upload charm /root/tf-charms/contrail-analyticsdb for series bionic
+- deploy application contrail-analyticsdb on bionic using /root/tf-charms/contrail-analyticsdb
+- expose contrail-analyticsdb
+- upload charm /root/tf-charms/contrail-controller for series bionic
+- deploy application contrail-controller on bionic using /root/tf-charms/contrail-controller
+- expose contrail-controller
+- upload charm /root/tf-charms/contrail-keystone-auth for series bionic
+- deploy application contrail-keystone-auth on bionic using /root/tf-charms/contrail-keystone-auth
+- upload charm /root/tf-charms/contrail-kubernetes-master for series bionic
+- deploy application contrail-kubernetes-master on bionic using /root/tf-charms/contrail-kubernetes-master
+- upload charm /root/tf-charms/contrail-kubernetes-node for series bionic
+- deploy application contrail-kubernetes-node on bionic using /root/tf-charms/contrail-kubernetes-node
+- upload charm /root/tf-charms/contrail-openstack for series bionic
+- deploy application contrail-openstack on bionic using /root/tf-charms/contrail-openstack
+- upload charm cs:~containers/docker-91 for series bionic
+ERROR cannot deploy bundle: cannot add charm "cs:~containers/docker-91": cannot retrieve charm "cs:~containers/docker-91": cannot get archive: Get "https://api.jujucharms.com/charmstore/v5/~containers/docker-91/archive?channel=stable": dial tcp: lookup api.jujucharms.com on 127.0.0.53:53: read udp 127.0.0.1:47355->127.0.0.53:53: i/o timeout

@@ -1,7 +1,7 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "master.1495-ubi" 
+  image-tag:                    &image-tag                      "R2011.L1.169" 
   data-network:                 &data-network                   "192.168.27.0/24" 
   control-network:              &control-network                "192.168.7.0/24" 
   # vhost-gateway:                &vhost-gateway                  "192.168.27.1"
@@ -114,7 +114,7 @@ services:
   docker:
     bindings:
       "": mgmt
-    charm: cs:~containers/docker-59
+    charm: cs:~containers/docker-91
     options:
       docker_runtime: custom
       docker_runtime_key_url: https://download.docker.com/linux/ubuntu/gpg

@@ -5,7 +5,7 @@ provider_config:
     domainsuffix: 'maas'
 
 instances:
-  192.168.7_20:
+  noden20:
     ip: 192.168.7.20
     provider: bms
     roles:
@@ -18,7 +18,7 @@ instances:
       control:
       webui:
       openstack:
-  192.168.7_29:
+  noden29:
     ip: 192.168.7.29
     provider: bms
     roles:
@@ -30,10 +30,9 @@ instances:
       config_database:
       control:
       webui:
-      # vrouter:
       k8s_master:
       kubemanager:
-  192.168.7_34:
+  nodei34:
     ip: 192.168.7.34
     provider: bms
     roles:
@@ -46,13 +45,13 @@ instances:
       control:
       webui:
       openstack:
-  192.168.7_19:
+  noden19:
     ip: 192.168.7.19
     provider: bms
     roles:
       vrouter:
       k8s_node:
-  192.168.7_9:
+  noden9:
     ip: 192.168.7.9
     provider: bms
     roles:
@@ -65,7 +64,7 @@ global_configuration:
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
-  CONTRAIL_CONTAINER_TAG: '2011.61'
+  CONTRAIL_CONTAINER_TAG: '{{ version }}'
   CLOUD_ORCHESTRATOR: kubernetes
   OPENSTACK_VERSION: queens
   AUTH_MODE: keystone
@@ -94,7 +93,7 @@ deployment:
 test_configuration:
   image_web_server: 10.204.217.158
   auth_port: 35357
-  auth_url: http://192.168.7.4:35357/v3
+  auth_url: http://{{ auth_ip }}:35357/v3
   juju_server: 192.168.7.18
   web_server:
     server: 10.204.216.50

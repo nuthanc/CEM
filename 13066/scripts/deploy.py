@@ -8,6 +8,10 @@ DEPLOY_FILE = 'my-k8s-os-mi.yaml'
 TEST_INPUT = 'test_input.yaml'
 
 
+def destroy_model():
+    os.system('juju destroy-model default --force -y')
+
+
 def add_model():
     os.system('juju add-model default')
     os.system('juju model-config default-space=mgmt')
@@ -34,14 +38,15 @@ def deploy_with_yaml():
 
 
 def main():
+    destroy_model()
     add_model()
     prepare_yaml()
     deploy_with_yaml()
     os.system('nohup python3 wait_and_update.py &')
 
 if __name__ == '__main__':
-    # main()
+    main()
     # prepare_yaml()
-    os.system('nohup python3 wait_and_update.py &')
+    # os.system('nohup python3 wait_and_update.py &')
 
 

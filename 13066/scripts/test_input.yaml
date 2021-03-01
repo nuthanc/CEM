@@ -64,7 +64,7 @@ global_configuration:
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
-  CONTRAIL_CONTAINER_TAG: 'master.1175'
+  CONTRAIL_CONTAINER_TAG: 'R2011.L1.180'
   CLOUD_ORCHESTRATOR: kubernetes
   OPENSTACK_VERSION: queens
   AUTH_MODE: keystone
@@ -93,7 +93,7 @@ deployment:
 test_configuration:
   image_web_server: 10.204.217.158
   auth_port: 35357
-  auth_url: http://192.168.7.12:35357/v3
+  auth_url: http://:35357/v3
   juju_server: 192.168.7.18
   web_server:
     server: 10.204.216.50

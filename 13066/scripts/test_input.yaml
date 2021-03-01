@@ -108,3 +108,15 @@ test_configuration:
     to: nuthanc@juniper.net
     sender: contrailbuild@juniper.net
   use_project_scoped_token: True
+
+control_data:
+  noden20:
+    ip: 192.168.27.20
+  noden29:
+    ip: 192.168.27.29
+  nodei34:
+    ip: 192.168.27.34
+  noden19:
+    ip: 192.168.27.19
+  nodec9:
+    ip: 192.168.27.9

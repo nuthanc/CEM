@@ -1,16 +1,28 @@
 import subprocess
 import sys
 import os
+import yaml
 
-nodes = ("noden19", "noden20", "nodec9", "noden29", "nodei34")
-mgmt_ips = ("192.168.7.19", "192.168.7.20", "192.168.7.9", "192.168.7.29", "192.168.7.34")
-ctrl_ips = ("192.168.27.19", "192.168.27.20", "192.168.27.9", "192.168.27.29", "192.168.27.34")
-# Comment control ips for single interface deployment
+TEST_INPUT = 'test_input.yaml'
 localhosts = []
 hosts = []
 mgmt_dns = []
 ctrl_dns = []
 commands = []
+mgmt_ips = []
+ctrl_ips = []
+
+with open(TEST_INPUT) as file:
+    data = yaml.load(file, Loader=yaml.FullLoader)
+
+nodes = list(data['instances'].keys())
+for _, v in data['instances'].items():
+  mgmt_ips.append(v['ip'])
+
+# Comment control ips for single interface deployment
+for _, v in data['control_data'].items():
+  ctrl_ips.append(v['ip'])
+
 
 for ip in mgmt_ips:
     os.system(f'ssh-keygen -f "/root/.ssh/known_hosts" -R "{ip}"')

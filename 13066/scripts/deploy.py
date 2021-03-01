@@ -7,6 +7,7 @@ from jinja2 import Environment, FileSystemLoader
 DEPLOY_FILE = 'my-k8s-os-mi.yaml'
 TEST_INPUT = 'test_input.yaml'
 
+
 def add_model():
     os.system('juju add-model default')
     os.system('juju model-config default-space=mgmt')
@@ -28,33 +29,19 @@ def prepare_yaml():
         f.write(template.render(version=version, auth_ip=auth_ip))
 
 
-def get_nodes():
-    with open(TEST_INPUT) as file:
-        data = yaml.load(file, Loader=yaml.FullLoader)
-    return list(data['instances'].keys())
-
-
 def deploy_with_yaml():
     os.system('juju deploy ./my-k8s-os-mi.yaml')
-
-
-def wait_for_nodes_to_deploy():
-    import juju
-    # MSG START here
 
 
 def main():
     add_model()
     prepare_yaml()
     deploy_with_yaml()
-    nodes = get_nodes()
-    wait_for_nodes_to_deploy(nodes)
-    update_etc_hosts()
-    update_host_templates()
-
+    os.system('nohup python3 wait_and_update.py &')
 
 if __name__ == '__main__':
     # main()
     # prepare_yaml()
-    nodes = get_nodes()
-    wait_for_nodes_to_deploy(nodes)
+    os.system('nohup python3 wait_and_update.py &')
+
+

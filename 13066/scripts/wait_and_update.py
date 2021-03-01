@@ -10,8 +10,6 @@ TEST_INPUT = 'test_input.yaml'
 def get_nodes():
     with open(TEST_INPUT) as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
-    for k, v in data['instances'].items():
-        print(v['ip'])
     return list(data['instances'].keys())
 
 
@@ -19,12 +17,12 @@ def wait_for_nodes_to_deploy(nodes):
     for node in nodes:
         status = check_output(
             f"juju status|grep {node}", shell=True, universal_newlines=True).strip()
-        print(status)
+        print(status, flush=True)
         while 'Deployed' not in status:
             time.sleep(5)
             status = check_output(
                 f"juju status|grep {node}", shell=True, universal_newlines=True).strip()
-            print(status)
+            print(status, flush=True)
 
 
 def update_etc_hosts():

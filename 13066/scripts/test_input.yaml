@@ -64,7 +64,7 @@ global_configuration:
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
-  CONTRAIL_CONTAINER_TAG: 'R2011.L1.180'
+  CONTRAIL_CONTAINER_TAG: 'R2011.L1.186'
   CLOUD_ORCHESTRATOR: kubernetes
   OPENSTACK_VERSION: queens
   AUTH_MODE: keystone

@@ -1,7 +1,7 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "R2011.L1.177" 
+  image-tag:                    &image-tag                      "R2011.L1.186" 
   data-network:                 &data-network                   "192.168.27.0/24" 
   control-network:              &control-network                "192.168.7.0/24" 
   # vhost-gateway:                &vhost-gateway                  "192.168.27.1"

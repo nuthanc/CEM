@@ -18,6 +18,7 @@ def add_model():
 
 
 def prepare_yaml():
+    # version = "R2011.L1.186" 
     version = input("Enter contrail version: ")
     auth_ip = check_output("juju status|grep 5000|awk '{print $5}'", shell=True, universal_newlines=True).strip()
 
@@ -27,6 +28,8 @@ def prepare_yaml():
     template = env.get_template(f"{DEPLOY_FILE}.j2")
     with open(DEPLOY_FILE, 'w') as f:
         f.write(template.render(version=version))
+    
+    os.system(f'cp {DEPLOY_FILE} /root/CEM/13066/{DEPLOY_FILE}')
 
     template = env.get_template(f"{TEST_INPUT}.j2")
     with open(TEST_INPUT, 'w') as f:

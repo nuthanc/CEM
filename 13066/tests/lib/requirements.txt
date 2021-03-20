@@ -33,7 +33,7 @@ importlib-metadata==1.7.0
 incremental==16.10.1
 isc==2.0
 iso8601==0.1.11
-Jinja2==2.10
+Jinja2==2.11.3
 jsonschema==2.6.0
 keyring==10.6.0
 keyrings.alt==3.0

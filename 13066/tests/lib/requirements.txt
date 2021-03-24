@@ -39,7 +39,7 @@ keyring==10.6.0
 keyrings.alt==3.0
 keystoneauth1==4.2.1
 language-selector==0.1
-lxml==4.2.1
+lxml==4.6.3
 macaroonbakery==1.2.1
 MarkupSafe==1.0
 msgpack==1.0.0

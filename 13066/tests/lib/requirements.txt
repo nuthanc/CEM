@@ -85,7 +85,7 @@ python-tx-tftp==0.2
 pytz==2018.3
 pyvmomi==6.5.0.2017.5.post1
 pyxdg==0.25
-PyYAML==5.3.1
+PyYAML==5.4
 requests==2.18.4
 rfc3986==1.4.0
 roman==2.0.0

@@ -104,7 +104,7 @@ toml==0.10.1
 Twisted==17.9.0
 ufw==0.35
 unattended-upgrades==0.1
-urllib3==1.22
+urllib3==1.26.5
 uvloop==0.8.1
 webencodings==0.5
 wrapt==1.12.1

@@ -1,10 +1,10 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2011.L2.301" 
-  data-network:                 &data-network                   "192.168.27.0/24" 
-  control-network:              &control-network                "192.168.7.0/24" 
-  # vhost-gateway:                &vhost-gateway                  "192.168.27.1"
+  image-tag:                    &image-tag                      "{{ version }}" 
+  data-network:                 &data-network                   "192.168.40.0/24" 
+  control-network:              &control-network                "192.168.30.0/24" 
+  # vhost-gateway:                &vhost-gateway                  "192.168.40.1"
 services:
   contrail-agent:
     charm: /root/tf-charms/contrail-agent
@@ -243,7 +243,7 @@ services:
       openstack-origin: distro
       virt-type: qemu
   ntp:
-    charm: cs:ntp-41
+    charm: cs:ntp
     num_units: 0
     options:
       source: 10.204.217.158

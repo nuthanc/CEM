@@ -18,8 +18,8 @@ def add_model():
 
 
 def prepare_yaml():
-    version = "2011.L2.301" 
-    #version = input("Enter contrail version: ")
+    version = "R2011.L1.224" 
+    # version = input("Enter contrail version: ")
     auth_ip = check_output("juju status|grep 5000|awk '{print $5}'", shell=True, universal_newlines=True).strip()
 
     THIS_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -30,7 +30,6 @@ def prepare_yaml():
         f.write(template.render(version=version))
     
     os.system(f'cp {DEPLOY_FILE} /root/CEM/13066/{DEPLOY_FILE}')
-    # os.system(f'cp {DEPLOY_FILE} /root/contrail-tools/testers/juju_deployment/hybrid/bundle.yaml')
 
     template = env.get_template(f"{TEST_INPUT}.j2")
     with open(TEST_INPUT, 'w') as f:

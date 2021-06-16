@@ -57,6 +57,9 @@ instances:
     roles:
       vrouter:
       openstack_compute:
+  192.168.7_18:
+    ip: 192.168.7.18
+    provider: bms
 
 global_configuration:
   CONTAINER_REGISTRY: bng-artifactory.juniper.net/contrail-nightly
@@ -64,7 +67,7 @@ global_configuration:
 
 contrail_configuration:
   LOG_LEVEL: SYS_DEBUG
-  CONTRAIL_CONTAINER_TAG: 'R2011.L1.186'
+  CONTRAIL_CONTAINER_TAG: '2011.L2.301'
   CLOUD_ORCHESTRATOR: kubernetes
   OPENSTACK_VERSION: queens
   AUTH_MODE: keystone
@@ -73,7 +76,7 @@ contrail_configuration:
   RABBITMQ_USE_SSL: 'true'
   CASSANDRA_SSL_ENABLE: 'true'
   KUBERNETES_PUBLIC_FIP_POOL:
-    domain: default-domain
+    domain: admin_domain
     name: __fip_pool_public__
     network: __public__
     project: k8s-default
@@ -108,6 +111,13 @@ test_configuration:
     to: nuthanc@juniper.net
     sender: contrailbuild@juniper.net
   use_project_scoped_token: True
+  ext_routers:
+        blr-mx-2: 192.168.27.1
+    router_asn: 64512
+    public_rt: 19212
+    public_subnet: 10.204.220.128/29
+    public_virtual_network: __public__
+    fip_pool_name: __fip_pool_public__
 
 control_data:
   noden20:

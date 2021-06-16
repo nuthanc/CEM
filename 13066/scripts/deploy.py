@@ -18,8 +18,8 @@ def add_model():
 
 
 def prepare_yaml():
-    # version = "R2011.L1.186" 
-    version = input("Enter contrail version: ")
+    version = "2011.L2.301" 
+    #version = input("Enter contrail version: ")
     auth_ip = check_output("juju status|grep 5000|awk '{print $5}'", shell=True, universal_newlines=True).strip()
 
     THIS_DIR = os.path.dirname(os.path.realpath(__file__))

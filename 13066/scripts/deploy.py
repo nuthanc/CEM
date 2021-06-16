@@ -30,6 +30,7 @@ def prepare_yaml():
         f.write(template.render(version=version))
     
     os.system(f'cp {DEPLOY_FILE} /root/CEM/13066/{DEPLOY_FILE}')
+    # os.system(f'cp {DEPLOY_FILE} /root/contrail-tools/testers/juju_deployment/hybrid/bundle.yaml')
 
     template = env.get_template(f"{TEST_INPUT}.j2")
     with open(TEST_INPUT, 'w') as f:

@@ -18,7 +18,7 @@ def add_model():
 
 
 def prepare_yaml():
-    version = "2011.L2.301" 
+    version = "2011.L2.311" 
     #version = input("Enter contrail version: ")
     auth_ip = check_output("juju status|grep 5000|awk '{print $5}'", shell=True, universal_newlines=True).strip()
 

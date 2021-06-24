@@ -1,7 +1,7 @@
 series: bionic
 variables:
   docker-registry:              &docker-registry                "bng-artifactory.juniper.net/contrail-nightly"
-  image-tag:                    &image-tag                      "2011.L2.301" 
+  image-tag:                    &image-tag                      "2011.L2.311" 
   data-network:                 &data-network                   "192.168.27.0/24" 
   control-network:              &control-network                "192.168.7.0/24" 
   # vhost-gateway:                &vhost-gateway                  "192.168.27.1"
@@ -90,7 +90,7 @@ services:
       control-network: *control-network
       ip_fabric_snat: true
       log-level: SYS_DEBUG
-      public_fip_pool: "{'domain':'default-domain','project':'k8s-default','name':'__fip_pool_public__','network':'__public__'}"
+      public_fip_pool: "{'domain':'admin_domain','project':'k8s-default','name':'__fip_pool_public__','network':'__public__'}"
       service_subnets: 10.96.0.0/12
       kubernetes_api_hostname: 192.168.27.29
       kubernetes_api_secure_port: "6443"
